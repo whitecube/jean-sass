@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "Rework white-sass",
   "main": "src/app.scss",
-  "sass": "src/app.scss",
-  "files": [
-    "src/**/*.scss"
-  ],
+  "exports": {
+    ".": {
+      "sass": "./src/app.scss"
+    }
+  },
   "scripts": {
     "build": "sass src/app.scss dist/index.css --style=compressed",
     "prepare": "husky"
