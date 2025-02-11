@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Rework white-sass",
   "main": "src/app.scss",
+  "sass": "src/app.scss",
   "exports": {
     ".": {
       "sass": "./src/app.scss"
