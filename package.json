@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "Rework white-sass",
   "main": "src/app.scss",
+  "sass": "src/app.scss",
   "files": [
-    "src/tools/_tools.scss"
+    "src/**/*.scss"
   ],
   "scripts": {
     "build": "sass src/app.scss dist/index.css --style=compressed",
