@@ -2,14 +2,14 @@
   "name": "@whitecube/white-sass",
   "version": "0.0.1",
   "description": "Rework white-sass",
-  "main": "./src/index.scss",
+  "main": "./src/_index.scss",
   "exports": {
     ".": {
-      "sass": "./src/index.scss"
+      "sass": "./src/_index.scss"
     }
   },
   "scripts": {
-    "build": "sass src/index.scss dist/index.css --style=compressed",
+    "build": "sass src/_index.scss dist/index.css --style=compressed",
     "prepare": "husky"
   },
   "repository": {
