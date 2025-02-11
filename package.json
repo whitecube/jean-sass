@@ -10,8 +10,26 @@
     "./tools": {
       "sass": "./src/tools/_tools.scss"
     },
+    "./config/breakpoints": {
+      "sass": "./src/config/breakpoints.scss"
+    },
     "./config/colors": {
-      "sass": "./src/config/_colors.scss"
+      "sass": "./src/config/colors.scss"
+    },
+    "./config/fonts": {
+      "sass": "./src/config/_fonts.scss"
+    },
+    "./config/global": {
+      "sass": "./src/config/_global.scss"
+    },
+    "./config/grid": {
+      "sass": "./src/config/_grid.scss"
+    },
+    "./config/icons": {
+      "sass": "./src/config/_icons.scss"
+    },
+    "./config/typography": {
+      "sass": "./src/config/_typography.scss"
     }
   },
   "scripts": {
