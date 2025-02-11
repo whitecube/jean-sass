@@ -1,0 +1,23 @@
+@use "../config/grid";
+@use "../tools/tools" as *;
+.wrapper {
+  max-width: em(grid.$width);
+  margin: 0 auto;
+  position: relative;
+
+  &.grid {
+    @include grid;
+  }
+
+  @media (max-width: rem(grid.$width)) {
+    margin: 0 rem(25);
+  }
+
+  @include mq($until: l) {
+    margin: 0 rem(20);
+  }
+
+  @include mq($until: m) {
+    margin: 0;
+  }
+}

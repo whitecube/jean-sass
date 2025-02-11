@@ -1,0 +1,12 @@
+//  - fixedGut( $col: number )
+// **********************************************************
+// returns size based on the specified amount of gutter.
+// uses the units you chose in config/global
+// **********************************************************
+
+@function fixedGut($gut) {
+  @if $gut == 0 {
+    @return 0;
+  }
+  @return ($gut * grid.$gutter_size);
+}

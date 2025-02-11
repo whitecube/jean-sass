@@ -1,0 +1,13 @@
+// - @include visible()
+// **********************************************************
+// Reset properties applied by @include hidden()
+// **********************************************************
+
+@mixin visible() {
+  position: relative;
+  overflow: visible;
+  clip: auto;
+  height: auto;
+  width: auto;
+  margin: 0;
+}

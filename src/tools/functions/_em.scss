@@ -1,0 +1,25 @@
+// - em( $goal: number|font-size-name, [$parent: number|font-size-name] )
+// **********************************************************
+// $parent default : m
+// Computes em sizes from pixel-based numbers
+// or defined font-sizes
+// **********************************************************
+
+@use "sass:math";
+@use "sass:meta";
+@use "../functions/rmUnit" as *;
+@use "../functions/font-size-unitless" as *;
+
+@function em($goal: m, $parent: m) {
+  $goal: if(
+    meta.type-of($goal) == number,
+    $goal,
+    font-size-unitless($goal) * 1em
+  );
+  $parent: if(
+    meta.type-of($parent) == number,
+    $parent,
+    font-size-unitless($parent) * 1em
+  );
+  @return (math.div(rmUnit($goal), rmUnit($parent)) * 1em);
+}

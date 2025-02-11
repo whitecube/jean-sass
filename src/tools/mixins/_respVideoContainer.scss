@@ -1,0 +1,22 @@
+// - @include respVideoContainer( $col: number, $parent: number )
+// **********************************************************
+// Uses col among other properties to create a
+// video container (iframe) for the amout of columns in
+// a certain amount of parent-columns
+// **********************************************************
+@use "../functions/col" as *;
+
+@mixin respVideoContainer($col, $parent) {
+  width: col($col, $parent);
+  padding-bottom: (col($col, $parent) * 0.5625);
+  height: 0;
+  position: relative;
+  & iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

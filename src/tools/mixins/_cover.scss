@@ -1,0 +1,82 @@
+// - @include cover()
+// **********************************************************
+// sets an element in an absolute position, covering its
+// relative parent.
+// **********************************************************
+
+@mixin cover(
+  $offset1: false,
+  $offset2: false,
+  $offset3: false,
+  $offset4: false
+) {
+  $top: 0;
+  $right: 0;
+  $bottom: 0;
+  $left: 0;
+  @if (
+    $offset1 !=
+      false and
+      $offset2 ==
+      false and
+      $offset3 ==
+      false and
+      $offset4 ==
+      false
+  ) {
+    $top: $offset1;
+    $right: $offset1;
+    $bottom: $offset1;
+    $left: $offset1;
+  } @else if(
+    $offset1 !=
+      false and
+      $offset2 !=
+      false and
+      $offset3 ==
+      false and
+      $offset4 ==
+      false
+  )
+  {
+    $top: $offset1;
+    $right: $offset2;
+    $bottom: $offset1;
+    $left: $offset2;
+  } @else if(
+    $offset1 !=
+      false and
+      $offset2 !=
+      false and
+      $offset3 !=
+      false and
+      $offset4 ==
+      false
+  )
+  {
+    $top: $offset1;
+    $right: $offset2;
+    $bottom: $offset3;
+    $left: $offset2;
+  } @else if(
+    $offset1 !=
+      false and
+      $offset2 !=
+      false and
+      $offset3 !=
+      false and
+      $offset4 !=
+      false
+  )
+  {
+    $top: $offset1;
+    $right: $offset2;
+    $bottom: $offset3;
+    $left: $offset4;
+  }
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

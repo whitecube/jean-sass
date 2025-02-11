@@ -1,8 +1,0 @@
-// - fvalue($size, $parent)
-// **********************************************************
-// returns the defined font-size without units
-// **********************************************************
-
-@function fvalue($size: m) {
-    @return map-get($ws_typography-sizes, $size);
-}

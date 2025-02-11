@@ -1,0 +1,17 @@
+// - gutter( $parent: number )
+// **********************************************************
+// returns gutter size in % depending on number
+// of parent-columns
+// **********************************************************
+
+@use "sass:math";
+@use "fixedCol" as *;
+@use "../../config/grid";
+
+@function gutter($parent) {
+  @if $parent == 0 {
+    @return 0;
+  }
+
+  @return math.percentage(math.div(grid.$gutter_size, fixedCol($parent)));
+}

@@ -1,0 +1,10 @@
+// - ps_ls( $ps_num: number )
+// **********************************************************
+// $ps_num is an unitless number you can find in the type
+// window of Photoshop.
+// Computes em letter-spacing
+// **********************************************************
+
+@function ps_ls($ps_num) {
+  @return ($ps_num * 0.001 * 1em);
+}

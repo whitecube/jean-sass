@@ -1,8 +1,0 @@
-// - color($name, $palette)
-// **********************************************************
-// returns the defined color in given or default color palette
-// **********************************************************
-
-@function color($name, $palette: $ws_colors) {
-    @return map-get($palette, $name);
-}

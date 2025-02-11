@@ -1,0 +1,14 @@
+@use "setIconBase" as *;
+@use "setIconInclude" as *;
+
+@mixin dynamic-icon($location: "before") {
+  &:#{$location} {
+    @include setIconBase();
+  }
+
+  @each $icon, $char in icons.$icon-list {
+    &[data-icon="#{$icon}"]:#{$location} {
+      @include setIconInclude($icon);
+    }
+  }
+}

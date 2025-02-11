@@ -1,0 +1,13 @@
+//  - col( $col: number, $parent: number )
+// **********************************************************
+// returns box size in %
+// **********************************************************
+@use "sass:math";
+@use "fixedCol" as *;
+
+@function col($col, $parent) {
+  @if $col == 0 {
+    @return 0;
+  }
+  @return percentage(math.div(fixedCol($col), fixedCol($parent)));
+}

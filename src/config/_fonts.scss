@@ -1,0 +1,127 @@
+$fonts-path: "../../fonts/"; // Public fonts directory
+$used-fonts: ();
+
+// Available fonts declaration. Map format :
+// fonts.$fonts-stack: (
+//      group: (
+//          variant: (
+//              family: "font-family-name",
+//              stack: (Helvetica, Arial, sans-serif),
+//              weight: normal,
+//              style: normal,
+//              file: "mt-font-file", // optional, will take group-variant by default
+//              formats: (woff2, woff), // optional, will take (eot woff2 woff ttf svg) by default
+//              bust: false // optional, will add a random string in the font's URL query parameters for cache busting
+//          ),
+//          ...
+//      ),
+//      ...
+// );
+
+$fonts-stack: (
+  roc: (
+    regular: (
+      family: "roc_groteskregular",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "roc_grotesk_regular-webfont",
+      formats: (
+        woff,
+        woff2,
+      ),
+    ),
+    bold: (
+      family: "roc_groteskbold",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "roc_grotesk_bold-webfont",
+      formats: (
+        woff,
+        woff2,
+      ),
+    ),
+    condensed: (
+      family: "roc_groteskcondensed",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "roc_grotesk_condensed_bold-webfont",
+      formats: (
+        woff,
+        woff2,
+      ),
+    ),
+  ),
+  instrument: (
+    regular: (
+      family: "instrument_serifregular",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "instrumentserif-regular-webfont",
+      formats: (
+        woff,
+        woff2,
+      ),
+    ),
+    italic: (
+      family: "instrument_serifitalic",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "instrumentserif-italic-webfont",
+      formats: (
+        woff,
+        woff2,
+      ),
+    ),
+  ),
+  jv: (
+    regular: (
+      family: "jv_signatureregular",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "fontsfree-net-jv-signature-regular-webfont",
+      formats: (
+        woff,
+        woff2,
+      ),
+    ),
+  ),
+  icons: (
+    font: (
+      family: "iconfont",
+      weight: normal,
+      file: "iconfont",
+      style: normal,
+      bust: true,
+    ),
+  ),
+);

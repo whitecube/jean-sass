@@ -1,0 +1,13 @@
+@use "./global";
+$breakpoints: (
+  xxl: 1800px,
+  xl: 1200px,
+  l: 920px,
+  m: 760px,
+  s: 640px,
+  xs: 480px,
+);
+
+@if global.$env != "production" {
+  $mq-show-breakpoints: (xs, s, m, l, xl);
+}

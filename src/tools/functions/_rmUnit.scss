@@ -1,0 +1,9 @@
+// - @include rmUnit( $var: number+unit )
+// **********************************************************
+// removes units from variable values
+// **********************************************************
+@use "sass:math";
+
+@function rmUnit($var) {
+  @return math.div($var, $var * 0 + 1);
+}

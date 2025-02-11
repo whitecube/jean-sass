@@ -1,0 +1,8 @@
+// - @include rootCss()
+// **********************************************************
+// Adds base CSS rules (to be used on root HTML element)
+// **********************************************************
+
+@mixin rootCss() {
+  -webkit-text-size-adjust: 100%;
+}

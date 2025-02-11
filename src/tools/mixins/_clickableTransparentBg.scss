@@ -1,0 +1,10 @@
+// - @include clickableTransparentBg()
+// **********************************************************
+// Adds a transparent background to a clickable block-
+// element. Why ? Because IE.
+// **********************************************************
+
+@mixin clickableTransparentBg() {
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
+    0 0 repeat;
+}

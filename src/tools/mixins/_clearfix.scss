@@ -1,0 +1,13 @@
+// - @include clearfix([both|left|right])
+// **********************************************************
+// Default : both
+// Reset float on parent-element of floated elements
+// **********************************************************
+
+@mixin clearfix($w: both) {
+  &:after {
+    content: "";
+    display: block;
+    clear: $w;
+  }
+}

@@ -1,0 +1,49 @@
+// - @include font-face($family, $path, $weight, $style, $extensions, $bust)
+// **********************************************************
+// Creates an @font-face declaration with given properties
+// Inspired by
+// https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+// **********************************************************
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $extensions: eot woff2 woff ttf svg,
+  $bust: false
+) {
+  $src: null;
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+  $buster: if($bust, str-slice("" + random(), 3), "");
+
+  @each $ext in $extensions {
+    $extmod: if(map-has-key($extmods, $ext), map-get($extmods, $ext), "");
+    @if str-slice($extmod, 0, 1) == "?" and $bust {
+      $extmod: if($extmod == "?", "", "&" + str-slice($extmod, 2));
+    }
+    @if $bust {
+      $extmod: "?" + $buster + $extmod;
+    }
+    $extmod: $ext + $extmod;
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + "." + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}

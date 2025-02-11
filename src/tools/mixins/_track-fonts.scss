@@ -1,0 +1,28 @@
+// - @include track-fonts($group, $variant)
+// **********************************************************
+// Adds font to used-fonts map in order to include them as
+// font-face inclusions
+// **********************************************************
+
+$used-fonts: ();
+
+@mixin track-fonts($group, $variant) {
+  @if map-has-key($used-fonts, $group) == false {
+    $used-fonts: map-merge(
+      $used-fonts,
+      (
+        $group: (),
+      )
+    ) !global;
+  }
+  $font-map: map-get($used-fonts, $group);
+  @if index($font-map, $variant) == null {
+    $variations: append($font-map, $variant);
+    $used-fonts: map-merge(
+      $used-fonts,
+      (
+        $group: $variations,
+      )
+    ) !global;
+  }
+}

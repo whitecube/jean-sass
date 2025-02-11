@@ -1,0 +1,13 @@
+//  - colGut( $col: number, $colParent: number, $gutParent: number )
+// **********************************************************
+// returns box size in %
+// **********************************************************
+
+@function colGut($col, $gut, $colParent, $gutParent) {
+  @return percentage(
+    math.div(
+      fixedCol($col) + fixedGut($gut),
+      fixedCol($colParent) + fixedGut($gutParent)
+    )
+  );
+}

@@ -1,0 +1,10 @@
+// - @include resetFW()
+// **********************************************************
+// cleares width and float on element.
+// Usefull on responsive designs
+// **********************************************************
+
+@mixin resetFW() {
+  width: auto;
+  float: none;
+}

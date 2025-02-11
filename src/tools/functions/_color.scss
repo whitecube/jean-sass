@@ -1,0 +1,10 @@
+// - color($name, $palette)
+// **********************************************************
+// returns the defined color in given or default color palette
+// **********************************************************
+
+@use "../../config/colors" as *;
+
+@function color($name, $palette: $colors) {
+  @return map-get($palette, $name);
+}

@@ -1,0 +1,13 @@
+// - @include icon( $icon: icon-name )
+// **********************************************************
+// Includes an icon and its base.
+// $icon is the first param of the icon you want to use
+// as defined in config/icons.
+// **********************************************************
+@use "setIconBase" as *;
+@use "setIconInclude" as *;
+
+@mixin icon($icon) {
+  @include setIconBase();
+  @include setIconInclude($icon);
+}

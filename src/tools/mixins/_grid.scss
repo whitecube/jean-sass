@@ -1,0 +1,22 @@
+// - @include grid( $columnColor, $gutterColor, $columns );
+// **********************************************************
+// Includes a background gradient to display the grid
+// Can size properly in sub-grids by including the size
+// of the parent as a last argument
+// **********************************************************
+
+@use "../../config/grid";
+
+@mixin grid(
+  $columnColor: tomato,
+  $gutterColor: white,
+  $columns: grid.$columns
+) {
+  background: repeating-linear-gradient(
+    90deg,
+    $columnColor,
+    $columnColor col(1, $columns),
+    $gutterColor col(1, $columns),
+    $gutterColor col(1, $columns) + gutter($columns)
+  );
+}

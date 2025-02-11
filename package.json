@@ -1,0 +1,32 @@
+{
+  "name": "@white-sass/white-sass",
+  "version": "0.0.1",
+  "description": "Rework white-sass",
+  "main": "src/index.scss",
+  "scripts": {
+    "build": "sass src/app.scss dist/index.css --style=compressed",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/whitecube/white-sass.git"
+  },
+  "keywords": [
+    "sass"
+  ],
+  "author": "Whitecube",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whitecube/white-sass/issues"
+  },
+  "homepage": "https://github.com/whitecube/white-sass#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.0",
+    "sass": "^1.84.0"
+  },
+  "lint-staged": {
+    "src/*.{js,scss,json}": "prettier --write"
+  }
+}
