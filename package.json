@@ -1,8 +1,8 @@
 {
-  "name": "@white-sass/white-sass",
+  "name": "@whitecube/white-sass",
   "version": "0.0.1",
   "description": "Rework white-sass",
-  "main": "src/index.scss",
+  "main": "src/app.scss",
   "scripts": {
     "build": "sass src/app.scss dist/index.css --style=compressed",
     "prepare": "husky"
