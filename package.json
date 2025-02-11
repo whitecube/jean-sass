@@ -2,7 +2,7 @@
   "name": "@whitecube/white-sass",
   "version": "0.0.1",
   "description": "Rework white-sass",
-  "main": "src/index.scss",
+  "main": "./src/index.scss",
   "exports": {
     ".": {
       "sass": "./src/index.scss"
