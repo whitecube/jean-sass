@@ -1,5 +1,5 @@
-$fonts-path: "../../fonts/"; // Public fonts directory
-$used-fonts: ();
+$fonts-path: "../../fonts/" !default; // Public fonts directory
+$used-fonts: () !default;
 
 // Available fonts declaration. Map format :
 // fonts.$fonts-stack: (
@@ -124,4 +124,4 @@ $fonts-stack: (
       bust: true,
     ),
   ),
-);
+) !default;

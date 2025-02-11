@@ -6,8 +6,8 @@ $breakpoints: (
   m: 760px,
   s: 640px,
   xs: 480px,
-);
+) !default;
 
 @if global.$env != "production" {
-  $mq-show-breakpoints: (xs, s, m, l, xl);
+  $mq-show-breakpoints: (xs, s, m, l, xl) !default;
 }

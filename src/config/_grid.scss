@@ -1,5 +1,5 @@
 // GRIDZ
-$unit: 1em; //    Unit used in the gridz-system. Possible values : 1px, 1em, 1rem, 1banana (all available css units except '%')
-$columns: 14; //    Number of columns you want in the grid
-$width: 1800; //    Base grid-size (without units but based on pixels)
-$gutter_size: 24; //    Base gutter-size (without units but based on pixels)
+$unit: 1em !default; //    Unit used in the gridz-system. Possible values : 1px, 1em, 1rem, 1banana (all available css units except '%')
+$columns: 14 !default; //    Number of columns you want in the grid
+$width: 1800 !default; //    Base grid-size (without units but based on pixels)
+$gutter_size: 24 !default; //    Base gutter-size (without units but based on pixels)

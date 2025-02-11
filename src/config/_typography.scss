@@ -2,7 +2,7 @@
 *   All typography related variables.
 */
 
-$base-font-size: 16;
+$base-font-size: 16 !default;
 $font-sizes: (
   xl11: 200,
   xl10: 130,
@@ -21,4 +21,4 @@ $font-sizes: (
   xs: 13,
   xs2: 10,
   xs3: 9,
-);
+) !default;
