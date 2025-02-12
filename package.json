@@ -2,16 +2,17 @@
   "name": "@whitecube/white-sass",
   "version": "0.0.1",
   "description": "Rework white-sass",
-  "main": "./src/_index.scss",
+  "bin": "bin/cli.js",
+  "main": "./src/sass/_index.scss",
   "exports": {
     ".": {
-      "sass": "./src/_index.scss"
+      "sass": "./src/sass/_index.scss"
     },
     "./tools": {
-      "sass": "./src/tools/_tools.scss"
+      "sass": "./src/sass/tools/_tools.scss"
     },
     "./config/*": {
-      "sass": "./src/config/*.scss"
+      "sass": "./src/sass/config/*.scss"
     }
   },
   "scripts": {
