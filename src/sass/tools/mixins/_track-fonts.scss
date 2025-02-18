@@ -15,7 +15,7 @@ $used-fonts: ();
       )
     ) !global;
   }
-  $font-map: map-get($used-fonts, $group);
+  $font-map: map.get($used-fonts, $group);
   @if index($font-map, $variant) == null {
     $variations: append($font-map, $variant);
     $used-fonts: map-merge(

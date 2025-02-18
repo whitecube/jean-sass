@@ -15,17 +15,17 @@
       @if $font-properties {
         $font-file: if(
           map-has-key($font-properties, file),
-          map-get($font-properties, file),
+          map.get($font-properties, file),
           "#{$group}-#{$variant}"
         );
         $font-path: "#{fonts.$fonts-path}#{$font-file}";
-        $font-family: map-get($font-properties, family);
-        $font-formats: map-get($font-properties, formats);
-        $font-weight: map-get($font-properties, weight);
-        $font-style: map-get($font-properties, style);
+        $font-family: map.get($font-properties, family);
+        $font-formats: map.get($font-properties, formats);
+        $font-weight: map.get($font-properties, weight);
+        $font-style: map.get($font-properties, style);
         $font-bust: if(
           map-has-key($font-properties, bust),
-          map-get($font-properties, bust),
+          map.get($font-properties, bust),
           false
         );
         @if $font-formats {

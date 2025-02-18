@@ -9,5 +9,5 @@
   @if $col == 0 {
     @return 0;
   }
-  @return percentage(math.div(fixedCol($col), fixedCol($parent)));
+  @return math.percentage(math.div(fixedCol($col), fixedCol($parent)));
 }

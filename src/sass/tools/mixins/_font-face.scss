@@ -24,7 +24,7 @@
   $buster: if($bust, str-slice("" + random(), 3), "");
 
   @each $ext in $extensions {
-    $extmod: if(map-has-key($extmods, $ext), map-get($extmods, $ext), "");
+    $extmod: if(map-has-key($extmods, $ext), map.get($extmods, $ext), "");
     @if str-slice($extmod, 0, 1) == "?" and $bust {
       $extmod: if($extmod == "?", "", "&" + str-slice($extmod, 2));
     }
@@ -32,7 +32,7 @@
       $extmod: "?" + $buster + $extmod;
     }
     $extmod: $ext + $extmod;
-    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map.get($formats, $ext), $ext);
     $src: append(
       $src,
       url(quote($path + "." + $extmod)) format(quote($format)),

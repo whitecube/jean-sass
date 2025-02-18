@@ -1,0 +1,14 @@
+/**
+ * Needs a bit of JS to work:
+ *
+ * yarn add obj-fitimages
+ *
+ * Then in main JS script
+ * import objectFitImages from 'obj-fitimages';
+ * objectFitImages();
+ */
+
+@mixin obj-fit-cover() {
+    object-fit: cover;
+    font-family: 'object-fit: cover';
+}

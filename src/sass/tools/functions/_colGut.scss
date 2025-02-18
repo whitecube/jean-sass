@@ -3,11 +3,15 @@
 // returns box size in %
 // **********************************************************
 
+@use 'sass:math';
+@use 'fixedCol' as *;
+@use 'fixedGut' as *;
+
 @function colGut($col, $gut, $colParent, $gutParent) {
-  @return percentage(
-    math.div(
-      fixedCol($col) + fixedGut($gut),
-      fixedCol($colParent) + fixedGut($gutParent)
-    )
-  );
+    @return math.percentage(
+        math.div(
+            fixedCol($col) + fixedGut($gut),
+            fixedCol($colParent) + fixedGut($gutParent)
+        )
+    );
 }
