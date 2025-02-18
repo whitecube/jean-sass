@@ -1,2 +1,6 @@
+// Keep order (config then white-sass)
+
 @use "./config/config";
 @use "@whitecube/white-sass";
+
+@use "./parts/parts";
