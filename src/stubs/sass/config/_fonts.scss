@@ -1,0 +1,17 @@
+// @use '@whitecube/white-sass/config/fonts' with (
+//     $fonts-path: '../../fonts/', //$used-fonts: (),
+//     // Available fonts declaration. Map format :
+//     $fonts-stack: (
+//          group: (
+//              variant: (
+//                  family: "font-family-name",
+//                  stack: (Helvetica, Arial, sans-serif),
+//                  weight: normal,
+//                  style: normal,
+//                  file: "mt-font-file", // optional, will take group-variant by default
+//                  formats: (woff2, woff), // optional, will take (eot woff2 woff ttf svg) by default
+//                  bust: false // optional, will add a random string in the font's URL query parameters for cache busting
+//              ),
+//          ),
+//     ),
+// );
