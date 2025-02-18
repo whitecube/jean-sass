@@ -1,0 +1,4 @@
+@use '../../../../src/sass/tools/functions/fixedGut' as *;
+.fixedGut {
+    width: fixedGut(4);
+}

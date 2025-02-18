@@ -1,0 +1,16 @@
+// - map-deep-get($map, $keys...)
+// **********************************************************
+// Returns value of a nested map structure
+// **********************************************************
+@use "sass:meta";
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    @if meta.type-of($map) != "map" {
+      @warn '`#{$map}` is not a map.';
+      @return false;
+    }
+    $map: map.get($map, $key);
+  }
+  @return $map;
+}

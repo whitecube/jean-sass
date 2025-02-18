@@ -1,0 +1,5 @@
+@use '../../../../src/sass/tools/mixins/resetFW' as *;
+
+.resetFW {
+    @include resetFW();
+}

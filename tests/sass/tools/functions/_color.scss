@@ -1,0 +1,4 @@
+@use '../../../../src/sass/tools/functions/color' as *;
+.color {
+    color: color(4);
+}

@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build": "sass src/sass/_index.scss dist/index.css --style=compressed",
+    "test": "sass tests/sass/app.scss tests/dist/index.css --style=compressed",
     "prepare": "husky"
   },
   "repository": {

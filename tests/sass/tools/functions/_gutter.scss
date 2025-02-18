@@ -1,0 +1,5 @@
+@use '../../../../src/sass/tools/functions/gutter' as *;
+
+.gutter {
+    font-size: gutter(3);
+}
