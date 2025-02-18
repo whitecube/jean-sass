@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/mixins/obj-fit-contain' as *;
+@use "../../../../src/sass/tools/mixins/obj-fit-contain" as *;
 
 .obj-fit-contain {
-    @include obj-fit-contain();
+  @include obj-fit-contain();
 }

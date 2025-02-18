@@ -1,4 +1,4 @@
-$fonts-path: '../../fonts/' !default; // Public fonts directory
+$fonts-path: "../../fonts/" !default; // Public fonts directory
 $used-fonts: () !default;
 
 // Available fonts declaration. Map format :
@@ -19,15 +19,15 @@ $used-fonts: () !default;
 // );
 
 $fonts-stack: (
-    inter: (
-        variant: (
-            family: 'Inter',
-            stack: (
-                Helvetica,
-                Arial,
-                sans-serif,
-            ),
-            weight: normal,
-        ),
+  inter: (
+    variant: (
+      family: "Inter",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
     ),
+  ),
 ) !default;

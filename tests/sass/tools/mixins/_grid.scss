@@ -1,6 +1,6 @@
-@use '../../../../src/sass/tools/mixins/grid' as *;
+@use "../../../../src/sass/tools/mixins/grid" as *;
 
 .grid {
-    @include grid(tomato, blue, 2);
-    @include grid();
+  @include grid(tomato, blue, 2);
+  @include grid();
 }

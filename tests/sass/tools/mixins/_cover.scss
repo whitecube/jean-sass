@@ -1,7 +1,7 @@
-@use '../../../../src/sass/tools/mixins/cover' as *;
+@use "../../../../src/sass/tools/mixins/cover" as *;
 
 .cover {
-    @include cover(0px, 1px, 2px, 3px);
-    @include cover(0px, 1px);
-    @include cover(0px);
+  @include cover(0px, 1px, 2px, 3px);
+  @include cover(0px, 1px);
+  @include cover(0px);
 }

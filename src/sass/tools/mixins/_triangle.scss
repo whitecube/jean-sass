@@ -13,51 +13,51 @@
 //    - left
 // **********************************************************
 
-@use 'sass:string';
-@use '../functions/rmUnit' as *;
+@use "sass:string";
+@use "../functions/rmUnit" as *;
 
 @mixin triangle($dir: right, $w: 20, $h: 20, $color: #000000) {
-    display: block;
-    width: 0;
-    height: 0;
-    line-height: 0px;
-    border-style: solid;
+  display: block;
+  width: 0;
+  height: 0;
+  line-height: 0px;
+  border-style: solid;
 
-    @if string.unquote($dir) == topLeft {
-        border-width: (rmUnit($h) * 1px) (rmUnit($w) * 1px) 0 0;
-        border-color: $color transparent transparent transparent;
-    } @else if string.unquote($dir) == top {
-        border-width: 0
-            (rmUnit($w) * 0.5 * 1px)
-            (rmUnit($h) * 1px)
-            (rmUnit($w) * 0.5 * 1px);
-        border-color: transparent transparent $color transparent;
-    } @else if string.unquote($dir) == topRight {
-        border-width: 0 (rmUnit($w) * 1px) (rmUnit($h) * 1px) 0;
-        border-color: transparent $color transparent transparent;
-    } @else if string.unquote($dir) == right {
-        border-width: (rmUnit($h) * 0.5 * 1px)
-            0
-            (rmUnit($h) * 0.5 * 1px)
-            (rmUnit($w) * 1px);
-        border-color: transparent transparent transparent $color;
-    } @else if string.unquote($dir) == bottomRight {
-        border-width: 0 0 (rmUnit($h) * 1px) (rmUnit($w) * 1px);
-        border-color: transparent transparent $color transparent;
-    } @else if string.unquote($dir) == bottom {
-        border-width: (rmUnit($h) * 1px)
-            (rmUnit($w) * 0.5 * 1px)
-            0
-            (rmUnit($w) * 0.5 * 1px);
-        border-color: $color transparent transparent transparent;
-    } @else if string.unquote($dir) == bottomLeft {
-        border-width: (rmUnit($h) * 1px) 0 0 (rmUnit($w) * 1px);
-        border-color: transparent transparent transparent $color;
-    } @else if string.unquote($dir) == left {
-        border-width: (rmUnit($h) * 0.5 * 1px)
-            (rmUnit($w) * 1px)
-            (rmUnit($h) * 0.5 * 1px)
-            0;
-        border-color: transparent $color transparent transparent;
-    }
+  @if string.unquote($dir) == topLeft {
+    border-width: (rmUnit($h) * 1px) (rmUnit($w) * 1px) 0 0;
+    border-color: $color transparent transparent transparent;
+  } @else if string.unquote($dir) == top {
+    border-width: 0
+      (rmUnit($w) * 0.5 * 1px)
+      (rmUnit($h) * 1px)
+      (rmUnit($w) * 0.5 * 1px);
+    border-color: transparent transparent $color transparent;
+  } @else if string.unquote($dir) == topRight {
+    border-width: 0 (rmUnit($w) * 1px) (rmUnit($h) * 1px) 0;
+    border-color: transparent $color transparent transparent;
+  } @else if string.unquote($dir) == right {
+    border-width: (rmUnit($h) * 0.5 * 1px)
+      0
+      (rmUnit($h) * 0.5 * 1px)
+      (rmUnit($w) * 1px);
+    border-color: transparent transparent transparent $color;
+  } @else if string.unquote($dir) == bottomRight {
+    border-width: 0 0 (rmUnit($h) * 1px) (rmUnit($w) * 1px);
+    border-color: transparent transparent $color transparent;
+  } @else if string.unquote($dir) == bottom {
+    border-width: (rmUnit($h) * 1px)
+      (rmUnit($w) * 0.5 * 1px)
+      0
+      (rmUnit($w) * 0.5 * 1px);
+    border-color: $color transparent transparent transparent;
+  } @else if string.unquote($dir) == bottomLeft {
+    border-width: (rmUnit($h) * 1px) 0 0 (rmUnit($w) * 1px);
+    border-color: transparent transparent transparent $color;
+  } @else if string.unquote($dir) == left {
+    border-width: (rmUnit($h) * 0.5 * 1px)
+      (rmUnit($w) * 1px)
+      (rmUnit($h) * 0.5 * 1px)
+      0;
+    border-color: transparent $color transparent transparent;
+  }
 }

@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/mixins/clearfix' as *;
+@use "../../../../src/sass/tools/mixins/clearfix" as *;
 
 .clearfix {
-    @include clearfix($w: both);
+  @include clearfix($w: both);
 }

@@ -1,35 +1,35 @@
 /*
 * Functions
 */
-@use 'functions/col';
-@use 'functions/colGut';
-@use 'functions/color';
-@use 'functions/em';
-@use 'functions/fixedCol';
-@use 'functions/fixedGut';
-@use 'functions/font-size-unitless';
-@use 'functions/gutter';
-@use 'functions/px';
-@use 'functions/rem';
-@use 'functions/rmUnit';
+@use "functions/col";
+@use "functions/colGut";
+@use "functions/color";
+@use "functions/em";
+@use "functions/fixedCol";
+@use "functions/fixedGut";
+@use "functions/font-size-unitless";
+@use "functions/gutter";
+@use "functions/px";
+@use "functions/rem";
+@use "functions/rmUnit";
 // str-replace used on font-face;
 // map-deep-get used everywhere with font;
 
 /*
 * Mixins
 */
-@use 'mixins/clearfix';
-@use 'mixins/clickableTransparentBg';
-@use 'mixins/cover';
-@use 'mixins/font';
-@use 'mixins/grid';
-@use 'mixins/hidden';
-@use 'mixins/obj-fit-contain';
-@use 'mixins/obj-fit-cover';
-@use 'mixins/resetFW';
-@use 'mixins/respVideoContainer';
-@use 'mixins/triangle';
-@use 'mixins/visible';
+@use "mixins/clearfix";
+@use "mixins/clickableTransparentBg";
+@use "mixins/cover";
+@use "mixins/font";
+@use "mixins/grid";
+@use "mixins/hidden";
+@use "mixins/obj-fit-contain";
+@use "mixins/obj-fit-cover";
+@use "mixins/resetFW";
+@use "mixins/respVideoContainer";
+@use "mixins/triangle";
+@use "mixins/visible";
 
 // font-face:  used in src/sass/tools/mixins/_import-fonts.scss
 // import-fonts:  used in src/sass/tools/mixins/_font-face.scss

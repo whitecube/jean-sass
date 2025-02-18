@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/mixins/visible' as *;
+@use "../../../../src/sass/tools/mixins/visible" as *;
 
 .visible {
-    @include visible();
+  @include visible();
 }

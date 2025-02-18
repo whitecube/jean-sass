@@ -1,6 +1,6 @@
-@use '../../../../src/sass/tools/functions/rem' as *;
-@use '../../../../src/sass/tools/functions/rmUnit' as *;
+@use "../../../../src/sass/tools/functions/rem" as *;
+@use "../../../../src/sass/tools/functions/rmUnit" as *;
 
 .rmUnit {
-    font-size: rem(rmUnit(3px));
+  font-size: rem(rmUnit(3px));
 }

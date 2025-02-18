@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/mixins/triangle' as *;
+@use "../../../../src/sass/tools/mixins/triangle" as *;
 
 .triangle {
-    @include triangle();
+  @include triangle();
 }

@@ -4,34 +4,34 @@
 // font at the desired place.
 // **********************************************************
 
-@use 'sass:meta';
-@use 'track-fonts' as *;
-@use '../../config/fonts';
-@use '../functions/map-deep-get' as *;
+@use "sass:meta";
+@use "track-fonts" as *;
+@use "../../config/fonts";
+@use "../functions/map-deep-get" as *;
 
 @mixin font(
-    $name,
-    $variant: regular,
-    $properties: family weight style,
-    $font-stack: fonts.$fonts-stack
+  $name,
+  $variant: regular,
+  $properties: family weight style,
+  $font-stack: fonts.$fonts-stack
 ) {
-    $font-properties: map-deep-get($font-stack, $name, $variant);
-    @if $font-properties {
-        @include track-fonts($name, $variant);
-        @each $property in $properties {
-            $value: map.get($font-properties, $property);
-            @if $property == family {
-                $stack: map.get($font-properties, stack);
-                $stack: if(
-                    meta.type-of($stack) == string,
-                    ($value, $stack),
-                    join($value, $stack)
-                );
-                @if $stack {
-                    $value: $stack;
-                }
-            }
-            font-#{$property}: $value;
+  $font-properties: map-deep-get($font-stack, $name, $variant);
+  @if $font-properties {
+    @include track-fonts($name, $variant);
+    @each $property in $properties {
+      $value: map.get($font-properties, $property);
+      @if $property == family {
+        $stack: map.get($font-properties, stack);
+        $stack: if(
+          meta.type-of($stack) == string,
+          ($value, $stack),
+          join($value, $stack)
+        );
+        @if $stack {
+          $value: $stack;
         }
+      }
+      font-#{$property}: $value;
     }
+  }
 }

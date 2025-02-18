@@ -1,6 +1,6 @@
-@use '../../../../src/sass/tools/functions/rem' as *;
+@use "../../../../src/sass/tools/functions/rem" as *;
 
 .rem {
-    font-size: rem(3);
-    font-size: rem(xl);
+  font-size: rem(3);
+  font-size: rem(xl);
 }

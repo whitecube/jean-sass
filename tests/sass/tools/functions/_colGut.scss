@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/functions/colGut' as *;
+@use "../../../../src/sass/tools/functions/colGut" as *;
 
- .fixedCol {
-    width: colGut(4, 3, 2, 12);
+.fixedCol {
+  width: colGut(4, 3, 2, 12);
 }

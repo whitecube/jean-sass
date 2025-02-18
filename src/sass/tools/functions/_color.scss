@@ -3,9 +3,9 @@
 // returns the defined color in given or default color palette
 // **********************************************************
 
-@use 'sass:map';
-@use '../../config/colors' as *;
+@use "sass:map";
+@use "../../config/colors" as *;
 
 @function color($name, $palette: $colors) {
-    @return map.get($palette, $name);
+  @return map.get($palette, $name);
 }

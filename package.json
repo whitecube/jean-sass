@@ -40,6 +40,6 @@
     "sass": "^1.84.0"
   },
   "lint-staged": {
-    "src/*.{js,scss,json}": "prettier --write"
+    "*.{js,scss,json}": "prettier --write"
   }
 }

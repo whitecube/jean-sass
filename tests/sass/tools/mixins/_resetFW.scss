@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/mixins/resetFW' as *;
+@use "../../../../src/sass/tools/mixins/resetFW" as *;
 
 .resetFW {
-    @include resetFW();
+  @include resetFW();
 }

@@ -1,5 +1,5 @@
-@use '../../../../src/sass/tools/functions/em' as *;
+@use "../../../../src/sass/tools/functions/em" as *;
 .em {
-    font-size: em(1, 12);
-    font-size: em(m, 12);
+  font-size: em(1, 12);
+  font-size: em(m, 12);
 }
