@@ -15,7 +15,7 @@ First add `white-sass` to your package.json's dependencies.
 Then, run `npm install`. Once it's done, to use it you can either, run the command follwing command :
 
 ```sh
-npm white-sass install
+npx white-sass install
 ```
 
 or use it as a more classical way by using it in your files:
