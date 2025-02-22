@@ -4,6 +4,8 @@
 // font at the desired place.
 // **********************************************************
 
+@use "sass:list";
+@use "sass:map";
 @use "sass:meta";
 @use "track-fonts" as *;
 @use "../../config/fonts";
@@ -25,7 +27,7 @@
         $stack: if(
           meta.type-of($stack) == string,
           ($value, $stack),
-          join($value, $stack)
+          list.join($value, $stack)
         );
         @if $stack {
           $value: $stack;

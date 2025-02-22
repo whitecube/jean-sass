@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:map";
+
 // - @include track-fonts($group, $variant)
 // **********************************************************
 // Adds font to used-fonts map in order to include them as
@@ -7,8 +10,8 @@
 $used-fonts: ();
 
 @mixin track-fonts($group, $variant) {
-  @if map-has-key($used-fonts, $group) == false {
-    $used-fonts: map-merge(
+  @if map.has-key($used-fonts, $group) == false {
+    $used-fonts: map.merge(
       $used-fonts,
       (
         $group: (),
@@ -16,9 +19,9 @@ $used-fonts: ();
     ) !global;
   }
   $font-map: map.get($used-fonts, $group);
-  @if index($font-map, $variant) == null {
-    $variations: append($font-map, $variant);
-    $used-fonts: map-merge(
+  @if list.index($font-map, $variant) == null {
+    $variations: list.append($font-map, $variant);
+    $used-fonts: map.merge(
       $used-fonts,
       (
         $group: $variations,
