@@ -11,6 +11,12 @@
     "./tools": {
       "sass": "./src/sass/tools/_tools.scss"
     },
+    "./tools/mixins/*": {
+      "sass": "./src/sass/tools/mixins/*.scss"
+    },
+    "./tools/functions/*": {
+      "sass": "./src/sass/tools/functions/*.scss"
+    },
     "./config/*": {
       "sass": "./src/sass/config/*.scss"
     }
