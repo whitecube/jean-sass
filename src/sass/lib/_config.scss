@@ -1,0 +1,34 @@
+@use "sass:map";
+@use "sass:list";
+@use "../config/global" as *;
+@use "../tools/functions/str-split" as *;
+@use "../tools/functions/str-split" as *;
+
+// Merge $value in the key: $key
+@mixin merge-config($key, $value) {
+  $config: map.deep-merge(
+    $config,
+    (
+      $key: $value,
+    )
+  ) !global;
+}
+
+// - @include set-config( $key: string, $value: mixed)
+// **********************************************************
+// set a value in the $config array.
+// example:
+//   @include set-config('grid.unit', $value) => (grid:(unit: $value));
+//   @include set-config('grid', (unit: $value), true) => (grid:(unit: $value));
+//  The $merge:true attribute allows you to set up a whole array of values.
+// **********************************************************
+@mixin set-config($key, $value) {
+  $args: list.append(str-split($key, "."), $value);
+  $config: map.set($config, $args...) !global;
+}
+
+// Get the config value by dotted synthax key.
+@function config($key) {
+  $keys: str-split($key, ".");
+  @return map.get($config, $keys...);
+}

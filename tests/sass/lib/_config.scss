@@ -1,0 +1,12 @@
+@use "../../../src/sass/lib/config";
+@include config.set-config("value.key1", true);
+@include config.merge-config(
+  "value",
+  (
+    key2: true,
+  )
+);
+
+.config {
+  color: config.config("value.key1");
+}

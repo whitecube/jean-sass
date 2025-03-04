@@ -1,5 +1,8 @@
-$colors: (
+@use "../lib/config" as *;
+$config: (
   white: #ffffff,
   black: #28221b,
   grey: #696e6c,
-) !default;
+);
+
+@include merge-config("colors", $config);

@@ -1,5 +1,4 @@
-$fonts-path: "../../fonts/" !default; // Public fonts directory
-$used-fonts: () !default;
+@use "../lib/config" as *;
 
 // Available fonts declaration. Map format :
 // $fonts-stack: (
@@ -30,4 +29,12 @@ $fonts-stack: (
       weight: normal,
     ),
   ),
-) !default;
+);
+
+$config: (
+  used-fonts: (),
+  fonts-path: "../../fonts/",
+  fonts-stack: $fonts-stack,
+);
+
+@include merge-config("fonts", $config);

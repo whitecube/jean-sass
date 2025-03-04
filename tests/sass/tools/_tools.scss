@@ -32,6 +32,11 @@
 @use "mixins/triangle";
 @use "mixins/visible";
 
+/*
+* Lib
+*/
+@use "../lib/config";
+
 // font-face:  used in src/sass/tools/mixins/_import-fonts.scss
 // import-fonts:  used in src/sass/tools/mixins/_font-face.scss
 // track-fonts: used in src/sass/tools/mixins/_font.scss

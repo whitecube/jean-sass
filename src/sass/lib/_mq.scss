@@ -8,10 +8,9 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
-@use "../config/breakpoints" as *;
-@use "../config/typography";
+@use "config";
 
-$mq-base-font-size: typography.$base-font-size * 1px !default;
+$mq-base-font-size: config.config("typography.base-font-size") * 1px !default;
 
 /// Responsive mode
 ///
@@ -39,12 +38,7 @@ $mq-responsive: true !default;
 ///
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
-$breakpoints: (
-  mobile: 320px,
-  tablet: 740px,
-  desktop: 980px,
-  wide: 1300px,
-) !default;
+$breakpoints: config.config("breakpoints");
 
 /// Static breakpoint (for fixed-width layouts)
 ///

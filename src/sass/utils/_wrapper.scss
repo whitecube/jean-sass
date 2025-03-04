@@ -1,7 +1,8 @@
-@use "../config/grid";
 @use "../tools/tools" as *;
+@use "../tools/functions/rem" as *;
+
 .wrapper {
-  max-width: em(grid.$width);
+  max-width: config("grid.width");
   margin: 0 auto;
   position: relative;
 
@@ -9,7 +10,7 @@
     @include grid;
   }
 
-  @media (max-width: rem(grid.$width)) {
+  @media (max-width: rem(config("grid.width"))) {
     margin: 0 rem(25);
   }
 

@@ -15,6 +15,7 @@
 @forward "functions/rem";
 @forward "functions/rmUnit";
 @forward "functions/str-replace";
+@forward "functions/str-split";
 
 /*
 * Mixins
@@ -38,6 +39,7 @@
 /*
 * Libs
 */
+@forward "../lib/config";
 @forward "../lib/mq";
 @forward "../lib/decimals";
 @forward "../lib/easing";

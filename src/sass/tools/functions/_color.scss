@@ -4,8 +4,8 @@
 // **********************************************************
 
 @use "sass:map";
-@use "../../config/colors" as *;
+@use "../../lib/config" as *;
 
-@function color($name, $palette: $colors) {
+@function color($name, $palette: config("colors")) {
   @return map.get($palette, $name);
 }

@@ -8,14 +8,14 @@
 @use "sass:map";
 @use "sass:meta";
 @use "track-fonts" as *;
-@use "../../config/fonts";
+@use "../../lib/config" as *;
 @use "../functions/map-deep-get" as *;
 
 @mixin font(
   $name,
   $variant: regular,
   $properties: family weight style,
-  $font-stack: fonts.$fonts-stack
+  $font-stack: config("fonts.fonts-stack")
 ) {
   $font-properties: map-deep-get($font-stack, $name, $variant);
   @if $font-properties {

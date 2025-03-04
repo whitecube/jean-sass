@@ -1,16 +1,17 @@
-@use "../../config/grid";
-@use "sass:math";
 //  - fixedCol( $col: number )
 // **********************************************************
 // returns size based on the specified amount of columns.
 // uses the units you chose in config/global
 // **********************************************************
+@use "sass:math";
+@use "../../lib/config" as *;
 @use "../../lib/decimals" as *;
 
 @function fixedCol($col) {
   $col_width: math.div(
-    grid.$width - ((grid.$columns - 1) * grid.$gutter_size),
-    grid.$columns
+    config("grid.width") -
+      ((config("grid.columns") - 1) * config("grid.gutter_size")),
+    config("grid.columns")
   );
 
   @if $col == 0 {
@@ -18,6 +19,7 @@
   }
 
   @return (
-    ($col * $col_width) + ((decimal-ceil($col) - 1) * grid.$gutter_size)
+    ($col * $col_width) +
+      ((decimal-ceil($col) - 1) * config("grid.gutter_size"))
   );
 }
