@@ -6,7 +6,7 @@
 
 @use "sass:math";
 @use "fixedCol" as *;
-@use "../../lib/config" as *;
+@use "../../lib/config";
 
 @function gutter($parent) {
   @if $parent == 0 {
@@ -14,6 +14,6 @@
   }
 
   @return math.percentage(
-    math.div(config("grid.gutter_size"), fixedCol($parent))
+    math.div(config.get("grid.gutter_size"), fixedCol($parent))
   );
 }

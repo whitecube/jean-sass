@@ -4,13 +4,13 @@
 // Only use it for the text for now.
 // **********************************************************
 
-@use "../../lib/config" as *;
+@use "../../lib/config";
 @use "rem" as *;
 
 @function mid($min, $max) {
   @return clamp(
     rem($min),
-    calc(($min / 320 * 100 - $max / config("grid.width") * 100) * 1vw),
+    calc(($min / 320 * 100 - $max / config.get("grid.width") * 100) * 1vw),
     rem($max)
   );
 }

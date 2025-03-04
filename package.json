@@ -17,8 +17,8 @@
     "./tools/functions/*": {
       "sass": "./src/sass/tools/functions/*.scss"
     },
-    "./config/*": {
-      "sass": "./src/sass/config/*.scss"
+    "./config": {
+      "sass": "./src/sass/lib/config.scss"
     }
   },
   "scripts": {

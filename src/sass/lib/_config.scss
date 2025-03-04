@@ -5,7 +5,7 @@
 @use "../tools/functions/str-split" as *;
 
 // Merge $value in the key: $key
-@mixin merge-config($key, $value) {
+@mixin merge($key, $value) {
   $config: map.deep-merge(
     $config,
     (
@@ -14,21 +14,21 @@
   ) !global;
 }
 
-// - @include set-config( $key: string, $value: mixed)
+// - @include config.set( $key: string, $value: mixed)
 // **********************************************************
 // set a value in the $config array.
 // example:
-//   @include set-config('grid.unit', $value) => (grid:(unit: $value));
-//   @include set-config('grid', (unit: $value), true) => (grid:(unit: $value));
+//   @include config.set('grid.unit', $value) => (grid:(unit: $value));
+//   @include config.set('grid', (unit: $value), true) => (grid:(unit: $value));
 //  The $merge:true attribute allows you to set up a whole array of values.
 // **********************************************************
-@mixin set-config($key, $value) {
+@mixin set($key, $value) {
   $args: list.append(str-split($key, "."), $value);
   $config: map.set($config, $args...) !global;
 }
 
 // Get the config value by dotted synthax key.
-@function config($key) {
+@function get($key) {
   $keys: str-split($key, ".");
   @return map.get($config, $keys...);
 }

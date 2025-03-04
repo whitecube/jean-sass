@@ -2,7 +2,7 @@
 *   All typography related variables.
 */
 
-@use "../lib/config" as *;
+@use "../lib/config";
 
 $config: (
   base-font-size: 16,
@@ -27,4 +27,4 @@ $config: (
   ),
 );
 
-@include merge-config("typography", $config);
+@include config.merge("typography", $config);

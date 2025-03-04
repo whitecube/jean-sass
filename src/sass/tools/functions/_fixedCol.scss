@@ -4,14 +4,14 @@
 // uses the units you chose in config/global
 // **********************************************************
 @use "sass:math";
-@use "../../lib/config" as *;
+@use "../../lib/config";
 @use "../../lib/decimals" as *;
 
 @function fixedCol($col) {
   $col_width: math.div(
-    config("grid.width") -
-      ((config("grid.columns") - 1) * config("grid.gutter_size")),
-    config("grid.columns")
+    config.get("grid.width") -
+      ((config.get("grid.columns") - 1) * config.get("grid.gutter_size")),
+    config.get("grid.columns")
   );
 
   @if $col == 0 {
@@ -20,6 +20,6 @@
 
   @return (
     ($col * $col_width) +
-      ((decimal-ceil($col) - 1) * config("grid.gutter_size"))
+      ((decimal-ceil($col) - 1) * config.get("grid.gutter_size"))
   );
 }

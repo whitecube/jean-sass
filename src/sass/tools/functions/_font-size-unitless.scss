@@ -3,8 +3,8 @@
 // returns the font-size value without unit
 // **********************************************************
 @use "sass:map";
-@use "../../lib/config" as *;
+@use "../../lib/config";
 
 @function font-size-unitless($size: m) {
-  @return map.get(config("typography.font-sizes"), $size);
+  @return map.get(config.get("typography.font-sizes"), $size);
 }

@@ -2,7 +2,7 @@
 *   All typography related variables.
 */
 
-// @use '@whitecube/white-sass/tools';
+// @use '@whitecube/white-sass/config';
 
 // $config: (
 //     base-font-size: 16,
@@ -27,4 +27,4 @@
 //     ),
 // );
 
-// @include merge-config('typography', $config);
+// @include config.merge('typography', $config);

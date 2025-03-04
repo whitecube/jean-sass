@@ -1,4 +1,4 @@
-@use "../lib/config" as *;
+@use "../lib/config";
 
 // @if global.$env != "production" {
 //   $mq-show-breakpoints: (xs, s, m, l, xl) !default;
@@ -13,4 +13,4 @@ $config: (
   xs: 480px,
 );
 
-@include merge-config("breakpoints", $config);
+@include config.merge("breakpoints", $config);

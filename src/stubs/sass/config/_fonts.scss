@@ -23,4 +23,4 @@
 //     fonts-stack: $fonts-stack,
 // );
 
-// @include merge-config('fonts', $config);
+// @include config.merge('fonts', $config);

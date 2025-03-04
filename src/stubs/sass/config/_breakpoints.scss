@@ -1,4 +1,4 @@
-// @use '@whitecube/white-sass/tools';
+// @use '@whitecube/white-sass/config';
 
 // $config: (
 //     xxl: 1800px,
@@ -9,4 +9,4 @@
 //     xs: 480px,
 // );
 
-// @include merge-config('breakpoints', $config);
+// @include config.merge('breakpoints', $config);

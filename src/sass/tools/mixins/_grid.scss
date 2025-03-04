@@ -5,13 +5,13 @@
 // of the parent as a last argument
 // **********************************************************
 
-@use "../../lib/config" as *;
+@use "../../lib/config";
 @use "../functions/rem" as *;
 
 @mixin grid(
   $columnColor: tomato,
   $gutterColor: white,
-  $columns: config("grid.columns")
+  $columns: config.get("grid.columns")
 ) {
   background: repeating-linear-gradient(
     90deg,

@@ -1,8 +1,8 @@
-// @use '@whitecube/white-sass/tools';
+// @use '@whitecube/white-sass/config';
 // $config: (
 //   white: #ffffff,
 //   black: #28221b,
 //   grey: #696e6c,
 // );
 
-// @include merge-config('colors', $config);
+// @include config.merge('colors', $config);
