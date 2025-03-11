@@ -17,24 +17,10 @@
 //      ...
 // );
 
-$fonts-stack: (
-  inter: (
-    variant: (
-      family: "Inter",
-      stack: (
-        Helvetica,
-        Arial,
-        sans-serif,
-      ),
-      weight: normal,
-    ),
-  ),
-);
-
 $config: (
   used-fonts: (),
+  fonts-stack: (),
   fonts-path: "../../fonts/",
-  fonts-stack: $fonts-stack,
 );
 
 @include config.merge("fonts", $config);

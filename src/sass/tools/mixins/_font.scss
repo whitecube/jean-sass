@@ -11,13 +11,8 @@
 @use "../../lib/config";
 @use "../functions/map-deep-get" as *;
 
-@mixin font(
-  $name,
-  $variant: regular,
-  $properties: family weight style,
-  $font-stack: config.get("fonts.fonts-stack")
-) {
-  $font-properties: map-deep-get($font-stack, $name, $variant);
+@mixin font($name, $variant: regular, $properties: family weight style) {
+  $font-properties: config.get("fonts.fonts-stack.#{$name}.#{$variant}");
   @if $font-properties {
     @include track-fonts($name, $variant);
     @each $property in $properties {

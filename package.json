@@ -8,6 +8,9 @@
     ".": {
       "sass": "./src/sass/_index.scss"
     },
+    "./base/*": {
+      "sass": "./src/sass/base/*.scss"
+    },
     "./tools": {
       "sass": "./src/sass/tools/_tools.scss"
     },

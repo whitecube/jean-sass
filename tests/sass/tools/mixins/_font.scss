@@ -1,4 +1,68 @@
-@use "../../../../src/sass/tools/mixins/font" as *;
+@use "../../../../src/sass/lib/config";
+@use "../../../../src/sass/tools/mixins/font";
+@use "../../../../src/sass/tools/mixins/import-fonts";
+
+@include config.set(
+  "fonts.fonts-stack.inter",
+  (
+    regular: (
+      family: "inter",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "mt-font-file",
+      formats: (
+        woff2,
+        woff,
+      ),
+    ),
+    custom: (
+      family: "inter-custom",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "mt-font-file",
+      formats: (
+        woff2,
+        woff,
+      ),
+    ),
+  )
+);
+
+@include config.set(
+  "fonts.fonts-stack.test",
+  (
+    regular: (
+      family: "test-font",
+      stack: (
+        Helvetica,
+        Arial,
+        sans-serif,
+      ),
+      weight: normal,
+      style: normal,
+      file: "test-font-file",
+      formats: (
+        woff2,
+        woff,
+      ),
+    ),
+  )
+);
+
 .font {
-  @include font(inter, regular);
+  @include font.font(test, regular);
+  @include font.font(inter, regular);
+  @include font.font(inter, custom);
 }
+
+@include import-fonts.import-fonts();

@@ -1,6 +1,11 @@
 // Keep order (config then white-sass)
-
 @use "./config/config";
+@use "@whitecube/white-sass/base/reset";
 @use "@whitecube/white-sass";
-
 @use "./parts/parts";
+
+/*
+* Import only used fonts. (please use the font(name, variant) function.  
+*/
+@use "@whitecube/white-sass/tools/mixins/import-fonts" as *;
+@include import-fonts();

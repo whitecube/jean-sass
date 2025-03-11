@@ -1,31 +1,24 @@
+@use "sass:string";
 @use "sass:list";
 @use "sass:map";
+@use "../../lib/config";
 
 // - @include track-fonts($group, $variant)
 // **********************************************************
 // Adds font to used-fonts map in order to include them as
 // font-face inclusions
 // **********************************************************
-
-$used-fonts: ();
-
 @mixin track-fonts($group, $variant) {
-  @if map.has-key($used-fonts, $group) == false {
-    $used-fonts: map.merge(
-      $used-fonts,
-      (
-        $group: (),
-      )
-    ) !global;
+  $currentVariants: config.get("fonts.used-fonts.#{string.quote($group)}");
+
+  @if ($currentVariants == null) {
+    $currentVariants: ();
   }
-  $font-map: map.get($used-fonts, $group);
-  @if list.index($font-map, $variant) == null {
-    $variations: list.append($font-map, $variant);
-    $used-fonts: map.merge(
-      $used-fonts,
-      (
-        $group: $variations,
-      )
-    ) !global;
-  }
+
+  $currentVariants: list.append($currentVariants, $variant);
+
+  @include config.set(
+    "fonts.used-fonts.#{string.quote($group)}",
+    $currentVariants
+  );
 }

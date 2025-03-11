@@ -4,6 +4,11 @@
 // Inspired by
 // https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
 // **********************************************************
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "../functions/str-replace" as *;
+
 @mixin font-face(
   $name,
   $path,
@@ -24,24 +29,24 @@
   $buster: if($bust, str-slice("" + random(), 3), "");
 
   @each $ext in $extensions {
-    $extmod: if(map-has-key($extmods, $ext), map.get($extmods, $ext), "");
-    @if str-slice($extmod, 0, 1) == "?" and $bust {
+    $extmod: if(map.has-key($extmods, $ext), map.get($extmods, $ext), "");
+    @if string.slice($extmod, 0, 1) == "?" and $bust {
       $extmod: if($extmod == "?", "", "&" + str-slice($extmod, 2));
     }
     @if $bust {
       $extmod: "?" + $buster + $extmod;
     }
     $extmod: $ext + $extmod;
-    $format: if(map-has-key($formats, $ext), map.get($formats, $ext), $ext);
-    $src: append(
+    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+    $src: list.append(
       $src,
-      url(quote($path + "." + $extmod)) format(quote($format)),
+      url(string.quote($path + "." + $extmod)) format(string.quote($format)),
       comma
     );
   }
 
   @font-face {
-    font-family: quote($name);
+    font-family: string.quote($name);
     font-style: $style;
     font-weight: $weight;
     src: $src;
