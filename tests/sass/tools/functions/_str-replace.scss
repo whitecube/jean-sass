@@ -1,0 +1,5 @@
+@use "../../../../src/sass/tools/functions/str-replace" as *;
+
+.str-replace {
+  background-color: str-replace("totaly not red", "totaly not ", "");
+}
