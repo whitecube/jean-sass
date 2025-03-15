@@ -14,7 +14,7 @@
     "./tools": {
       "sass": "./src/sass/tools/_tools.scss"
     },
-    "./lib": {
+    "./lib/*": {
       "sass": "./src/sass/lib/*.scss"
     },
     "./tools/mixins/*": {
