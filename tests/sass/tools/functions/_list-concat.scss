@@ -1,0 +1,6 @@
+@use "sass:string";
+@use "../../../../src/sass/tools/functions/list-concat" as *;
+
+.list-concat {
+  padding: string.unquote(list-concat((10px, 20px), " "));
+}

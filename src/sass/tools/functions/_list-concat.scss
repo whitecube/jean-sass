@@ -1,0 +1,15 @@
+@use "sass:string";
+
+@function list-concat($list, $separator) {
+  $string: "";
+
+  @each $item in $list {
+    @if $string == "" {
+      $string: "#{$item}";
+    } @else {
+      $string: "#{$string}#{$separator}#{$item}";
+    }
+  }
+
+  @return $string;
+}

@@ -4,8 +4,11 @@
 // **********************************************************
 
 @use "sass:map";
+@use "sass:list";
+@use "./list-concat" as *;
 @use "../../lib/config";
 
-@function color($name, $palette: config.get("colors")) {
-  @return map.get($palette, $name);
+@function color($keys...) {
+  $keys: list.join("colors", $keys);
+  @return config.get(list-concat($keys, "."));
 }

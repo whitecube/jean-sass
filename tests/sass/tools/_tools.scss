@@ -14,6 +14,7 @@
 @use "functions/rem";
 @use "functions/rmUnit";
 @use "functions/str-replace";
+@use "functions/list-concat";
 // @use "functions/str-split"; //tested withing the config system
 // str-replace used on font-face;
 // map-deep-get used everywhere with font;
