@@ -47,7 +47,7 @@
   "homepage": "https://github.com/whitecube/white-sass#readme",
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
+    "lint-staged": "^15.5.2",
     "prettier": "^3.5.0",
     "sass": "^1.84.0"
   },
