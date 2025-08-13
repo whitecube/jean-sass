@@ -5,12 +5,12 @@
 // }
 
 $config: (
-  xxl: 1800px,
-  xl: 1200px,
-  l: 920px,
-  m: 760px,
-  s: 640px,
-  xs: 480px,
+  "xxl": 1800px,
+  "xl": 1200px,
+  "l": 920px,
+  "m": 760px,
+  "s": 640px,
+  "xs": 480px,
 );
 
 @include config.merge("breakpoints", $config);
