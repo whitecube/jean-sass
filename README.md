@@ -18,6 +18,12 @@ Then, run `npm install`. Once it's done, to use it you can either, run the comma
 npx white-sass install
 ```
 
+OR
+
+```sh
+npx white-sass install resources/sass
+```
+
 or use it as a more classical way by using it in your files:
 
 ```scss
@@ -416,4 +422,42 @@ Revese the effect caused by the `hidden()` mixin.
 .not-hidden-anymore {
   @include visible();
 }
+```
+
+### Libraries
+
+#### Config
+
+The config library is there to manage all White-sass variable, to make it work properly. 4 pillars to make it work:
+
+- the global `$config` array, which is where all white-sass variable are stored.
+- the `set($key, $value)` mixin to add values
+- the `get($key)` mixin to get values
+- the `merge($key, $value)` mixin to deep merge arrays of config values.
+
+Everyone of these functions works with dotted synthax. Example, `get('grid.width')`.
+
+##### `set($key, $value, $merge: false)`
+
+Set values easly in the config `$array`.
+
+```scss
+@use "@whitecube/white-sass/lib/config";
+
+@include set("grid.unit", $value); // result => $config: (grid:(unit: $value));
+@include set(
+  "grid",
+  (
+    unit: $value,
+  )
+); // result => $config: (grid:(unit: $value));
+@include set("grid", "nothing"); // result => $config: (grid:'nothing');
+```
+
+##### Function - `get($key)`
+
+Get a value using the dotted synthax
+
+```scss
+font-size: set("grid.unit", $value);
 ```
