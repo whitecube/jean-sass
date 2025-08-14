@@ -1,0 +1,5 @@
+@use "../tools/tools" as *;
+
+.grid {
+  @include grid();
+}

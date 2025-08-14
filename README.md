@@ -72,7 +72,7 @@ $config: (
 @include config.merge("colors", $config);
 ```
 
-### Function
+### Functions
 
 #### `col($col, $parent)`
 
@@ -126,7 +126,7 @@ Get the desired percentage value based of the grid you set up in your `config/_g
 }
 ```
 
-### `color($keys...)`
+#### `color($keys...)`
 
 Get the colors based on the config, you can use it in 3 different way based on you `config/_colors.scss` file.
 
@@ -166,6 +166,9 @@ $config: (
 Get the desired em size based on the parent size. And values written in the `config/_typography.scss` file. You can either use number values which correspond to pixels or string values that correspond to your `font-size` config.
 
 ```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
 // _typography.scss simple config
 $config: (
   "font-sizes": (
@@ -191,6 +194,9 @@ Get the fixed width based of the amount of column in
 specified in the first parameter. This value is calculated based on values in the `config/_typography.scss` file. The value you'll get is **unitless**, don't forget to use it with `rem()`, `em()`,… functions.
 
 ```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
 // _grid.scss simple config
 $config: (
   unit: 1em,
@@ -203,5 +209,211 @@ $config: (
 .my-container {
   // fixedCol(4) returns a unitless value, rem(), convert it into a css readable value.
   max-width: rem(fixedCol(4));
+}
+```
+
+#### `gutter($parent)`
+
+Get the desired percentage value of a **single gutter** based of the grid you set up in your `config/_grid.scss`. The first argument is the parent's column amount.
+
+```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
+// _grid.scss simple config
+$config: (
+  unit: 1em,
+  columns: 12,
+  width: 1200,
+  gutter_size: 24,
+);
+
+// _your-part-file.scss
+.my-container {
+  // 1 gutter for a parent of 4 cols
+  width: gutter(4);
+}
+```
+
+#### `mid( $min: rem(14), $max: rem(16), $min-width: rem(320), $max-width: rem(config.get('grid.width')))`
+
+Get a fluid size between the `$min` and `$max` values depending on the max grid width and the min width. It generate a `clamp()` type value.
+
+```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
+.m-xl {
+  font-size: mid(16, 24);
+}
+
+.m-xl {
+  font-size: mid(rem(16), rem(24));
+}
+
+.m-xl {
+  font-size: mid("m", "xl");
+}
+```
+
+#### `px($goal: m)`
+
+Get the desired px size by its name. And values written in the `config/_typography.scss` file.
+
+```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
+.m {
+  font-size: px("m");
+}
+```
+
+#### `rem($goal: m, $root: m)`
+
+Get the desired `rem` size by its name as first parameter the second paremeter is the root value for `rem` units. Those values written in the `config/_typography.scss` file.
+
+```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
+.m {
+  font-size: rem('xl')
+  font-size: rem('xl', 'm')
+}
+```
+
+### Mixins
+
+#### `clearfix([both|left|right])`
+
+Reset float on parent-element of floated elements, the default value is `clearfix(both)`.
+
+```scss
+.clearfix {
+  @include clearfix(left);
+}
+```
+
+#### `clickableTransparentBg()`
+
+Adds a transparent background-image on links for example. **REALLY USEFULL**.
+
+```scss
+.clickableTransparentBg {
+  @include clickableTransparentBg();
+}
+```
+
+#### `cover($offset1, $offset2, $offset3, $offset4)`
+
+Sets an element in an absolute position, covering its relative parent. Parameters are the values from the `top`, `right`, `bottom`, `left` the parameter 's order works the same as the css `padding`, `margin`,…
+
+```scss
+.card-link {
+  @include cover();
+}
+```
+
+#### `font($name, $variant: regular, $properties: family weight style)`
+
+Sets an element in an absolute position, covering its relative parent. Parameters are the values from the `top`, `right`, `bottom`, `left` the parameter 's order works the same as the css `padding`, `margin`,…
+
+```scss
+.card-link {
+  //These values have to be set up in the dont config file.
+  @include font("inter", "bold");
+}
+```
+
+#### `grid()`
+
+Sets an element in an absolute position, covering its relative parent. Parameters are the values from the `top`, `right`, `bottom`, `left` the parameter 's order works the same as the css `padding`, `margin`,…
+
+```scss
+.card-link {
+  //These values have to be set up in the dont config file.
+  @include font("inter", "bold");
+}
+```
+
+#### `grid($columnColor: tomato, $gutterColor: white,$columns: config.get('grid.columns'))`
+
+Display a pattern as background of the element to make the grid appear. You can customize the colors and grid width by changing the parameters.
+
+```scss
+.element__wrapper {
+  @include grid();
+}
+```
+
+#### `hidden()`
+
+Hide an element but still make it readable for sreen readers.
+
+```scss
+.sreen-reader-only {
+  @include hidden();
+}
+```
+
+#### `obj-fit-cover()`
+
+Allow you to add `object-fit: cover;` and its polyfill with the `font-family` trick.
+
+```scss
+.ofc {
+  @include obj-fit-cover();
+}
+```
+
+#### `resetFW()`
+
+Cleares width and float on element.
+
+```scss
+.float {
+  @include resetFW();
+}
+```
+
+#### `respVideoContainer($col, $parent)`
+
+Uses col among other properties to create a video container (iframe) for the amout of columns in a certain amount of parent-columns. With the padding bottom method to keep aspect-ratio.
+
+```scss
+.video__container {
+  @include respVideoContainer();
+}
+```
+
+#### `triangle($dir: right, $w: 20, $h: 20, $color: #000000)`
+
+Creates css triangles. Use it on every element you want.
+
+Available directions:
+
+- topLeft
+- top
+- topRight
+- right
+- bottomRight
+- bottom
+- bottomLeft
+- left
+
+```scss
+.element {
+  @include triangle(down, 20, 40, red);
+}
+```
+
+#### `visible()`
+
+Revese the effect caused by the `hidden()` mixin.
+
+```scss
+.not-hidden-anymore {
+  @include visible();
 }
 ```

@@ -4,13 +4,49 @@
 // Only use it for the text for now.
 // **********************************************************
 
-@use "../../lib/config";
 @use "rem" as *;
+@use "sass:math";
+@use "sass:meta";
+@use "../../lib/config";
 
-@function mid($min, $max) {
+@function mid(
+  $min-font-size: rem(14),
+  $max-font-size: rem(16),
+  $min-width: rem(320),
+  $max-width: rem(config.get("grid.width"))
+) {
+  @if meta.type-of($min-font-size) ==
+    "string" or
+    math.is-unitless($min-font-size)
+  {
+    $min-font-size: rem($min-font-size);
+  }
+
+  @if meta.type-of($max-font-size) ==
+    "string" or
+    math.is-unitless($max-font-size)
+  {
+    $max-font-size: rem($max-font-size);
+  }
+
+  @if meta.type-of($min-width) == "string" or math.is-unitless($min-width) {
+    $min-width: rem($min-width);
+  }
+
+  @if meta.type-of($max-width) == "string" or math.is-unitless($max-width) {
+    $max-width: rem($max-width);
+  }
+
+  $slope: math.div(
+    ($max-font-size - $min-font-size),
+    ($max-width - $min-width)
+  );
+
+  $y-axis-intersection: -1 * $min-width * $slope + $min-font-size;
+
   @return clamp(
-    rem($min),
-    calc(($min / 320 * 100 - $max / config.get("grid.width") * 100) * 1vw),
-    rem($max)
+    #{$min-font-size},
+    #{$y-axis-intersection} + #{$slope} * 100vw,
+    #{$max-font-size}
   );
 }

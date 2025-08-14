@@ -7,6 +7,8 @@
 
 @use "../../lib/config";
 @use "../functions/rem" as *;
+@use "../functions/col" as *;
+@use "../functions/gutter" as *;
 
 @mixin grid(
   $columnColor: tomato,
