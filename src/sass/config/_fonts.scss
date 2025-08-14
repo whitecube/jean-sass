@@ -18,9 +18,9 @@
 // );
 
 $config: (
-  used-fonts: (),
-  fonts-stack: (),
-  fonts-path: "../../fonts/",
+  "used-fonts": (),
+  "fonts-stack": (),
+  "fonts-path": "../../fonts/",
 );
 
 @include config.merge("fonts", $config);
