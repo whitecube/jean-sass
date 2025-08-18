@@ -9,10 +9,10 @@
 // font-face inclusions
 // **********************************************************
 @mixin track-fonts($group, $variant) {
-  $currentVariants: config.get("fonts.used-fonts.#{string.quote($group)}");
+  $currentVariants: ();
 
-  @if ($currentVariants == null) {
-    $currentVariants: ();
+  @if config.exist("fonts.used-fonts.#{string.quote($group)}") {
+    $currentVariants: config.get("fonts.used-fonts.#{string.quote($group)}");
   }
 
   $currentVariants: list.append($currentVariants, $variant);

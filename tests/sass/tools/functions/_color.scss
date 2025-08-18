@@ -1,4 +1,6 @@
 @use "../../../../src/sass/tools/functions/color" as *;
+
 .color {
-  color: color(4);
+  color: color("wireframe.000");
+  color: color("wireframe", "000");
 }

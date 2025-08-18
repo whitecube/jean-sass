@@ -1,0 +1,15 @@
+// - radius($keys…)
+// **********************************************************
+// returns the defined radius.
+// **********************************************************
+
+@use "sass:list";
+@use "./rem" as *;
+@use "./list-concat" as *;
+@use "../../lib/config";
+@use "../../config/global";
+
+@function radius($keys...) {
+  $keys: list.join("radius", $keys);
+  @return rem(config.get(list-concat($keys, ".")));
+}

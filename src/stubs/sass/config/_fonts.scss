@@ -1,4 +1,4 @@
-// @use '@whitecube/white-sass/config';
+@use "@whitecube/white-sass/config";
 
 // Available fonts declaration. Map format :
 // $fonts-stack: (
@@ -18,9 +18,9 @@
 // );
 
 // $config: (
-//     used-fonts: (),
-//     fonts-path: '../../fonts/',
-//     fonts-stack: $fonts-stack,
+//     'used-fonts': (),
+//     'fonts-stack': (),
+//     'fonts-path': '../../fonts/',
 // );
 
 // @include config.merge('fonts', $config);

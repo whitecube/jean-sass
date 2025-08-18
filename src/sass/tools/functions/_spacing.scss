@@ -1,0 +1,15 @@
+// - spacing($keys…)
+// **********************************************************
+// returns the defined spacing.
+// **********************************************************
+
+@use "sass:list";
+@use "./rem" as *;
+@use "./list-concat" as *;
+@use "../../lib/config";
+
+@function spacing($keys...) {
+  $keys: list.join("spacings", $keys);
+  $value: config.get(list-concat($keys, "."));
+  @return rem($value);
+}

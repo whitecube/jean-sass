@@ -30,5 +30,22 @@
 // Get the config value by dotted synthax key.
 @function get($key) {
   $keys: str-split($key, ".");
-  @return map.get($config, $keys...);
+  $value: map.get($config, $keys...);
+
+  @if $key== "*" {
+    @return $config;
+  }
+
+  @if map.has-key($config, $keys...) {
+    @return $value;
+  }
+
+  @error ('The configuration map doesn\'t have a #{$key} key.');
+}
+
+// Check if a value exist in the config
+@function exist($key) {
+  $keys: str-split($key, ".");
+  $value: map.get($config, $keys...);
+  @return map.has-key($config, $keys...);
 }

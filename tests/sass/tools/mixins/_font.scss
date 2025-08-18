@@ -60,7 +60,6 @@
 );
 
 .font {
-  @include font.font(test, regular);
   @include font.font(inter, regular);
   @include font.font(inter, custom);
 }

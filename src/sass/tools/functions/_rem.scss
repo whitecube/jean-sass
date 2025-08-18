@@ -9,8 +9,12 @@
 @use "sass:meta";
 @use "rmUnit" as *;
 @use "font-size-unitless" as *;
+@use "../../lib/config";
 
-@function rem($goal: m, $root: m) {
+@function rem(
+  $goal: config.get("typography.base-font-size"),
+  $root: config.get("typography.base-font-size")
+) {
   @if (meta.type-of($goal) != number) {
     $goal: font-size-unitless($goal) * 1em;
   }

@@ -1,9 +1,26 @@
 // @use '@whitecube/white-sass/config';
-
 // $config: (
-//   'white': #ffffff,
-//   'black': #28221b,
-//   'grey': #696e6c,
+//     'wireframe': (
+//         '000': #ffffff,
+//         '50': #f8f9fa,
+//         '100': #ebedef,
+//         '200': #dde1e4,
+//         '300': #ced3d8,
+//         '400': #bdc4cb,
+//         '500': #aab4bc,
+//         '600': #95a1ac,
+//         '700': #808a93,
+//         '800': #646d74,
+//         '900': #3b3f44,
+//         '950': #1b1d1f,
+//         'grey-alpha': rgba(#ffa648, 0.4),
+//         'white-alpha': rgba(#ffffff, 0.4),
+//     ),
+//     'alert': (
+//         'red': #ff1a1a,
+//         'orange': #ffa648,
+//         'green': #00b312,
+//     ),
 // );
 
 // @include config.merge('colors', $config);
