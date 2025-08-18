@@ -3,10 +3,16 @@
 @include config.merge(
   "value",
   (
-    key2: true,
+    "key2": true,
   )
 );
 
 .config {
   color: config.get("value.key1");
+}
+
+.config {
+  @if config.get("value.key2") {
+    color: config.get("value.key2");
+  }
 }
