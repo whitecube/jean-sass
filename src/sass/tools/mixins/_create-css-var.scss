@@ -1,0 +1,17 @@
+// Allows to convert a nested array into css variables
+@use "sass:meta";
+@use "sass:list";
+
+@mixin create-css-var($base, $config) {
+  @if meta.type-of($config) == "map" {
+    @each $name, $config-item in $config {
+      @include create-css-var("#{$base}-#{$name}", $config-item);
+    }
+  } @else if
+    meta.type-of($config) !=
+    "list" or
+    (meta.type-of($config) == "list" and list.length($config) > 1)
+  {
+    --#{$base}: #{$config};
+  }
+}

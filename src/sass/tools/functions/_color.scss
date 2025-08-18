@@ -6,9 +6,19 @@
 @use "sass:map";
 @use "sass:list";
 @use "./list-concat" as *;
+@use "./str-split" as *;
 @use "../../lib/config";
 
 @function color($keys...) {
-  $keys: list.join("colors", $keys);
-  @return config.get(list-concat($keys, "."));
+  $mapped-keys: ("colors");
+
+  @each $key in $keys {
+    $key: str-split($key, ".");
+    $mapped-keys: list.join($mapped-keys, $key);
+  }
+
+  @return var(
+    --#{list-concat($mapped-keys, "-")},
+    config.get(list-concat($mapped-keys, "."))
+  );
 }

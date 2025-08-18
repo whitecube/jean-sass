@@ -7,6 +7,7 @@
 @forward "functions/em";
 @forward "functions/fixedCol";
 @forward "functions/fixedGut";
+@forward "functions/font-size";
 @forward "functions/font-size-unitless";
 @forward "functions/gutter";
 @forward "functions/list-concat";
@@ -26,6 +27,7 @@
 @forward "mixins/clearfix";
 @forward "mixins/clickableTransparentBg";
 @forward "mixins/cover";
+@forward "mixins/create-css-var";
 @forward "mixins/font-face";
 @forward "mixins/font";
 @forward "mixins/grid";

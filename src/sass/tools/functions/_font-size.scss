@@ -1,0 +1,13 @@
+// - font-size($size, $css-var)
+// **********************************************************
+// returns the font-size value
+// **********************************************************
+@use "rem" as *;
+
+@function font-size($size: m, $css-var: true) {
+  @if $css-var {
+    @return var(--fs-#{$size}, rem($size));
+  }
+
+  @return rem($size);
+}
