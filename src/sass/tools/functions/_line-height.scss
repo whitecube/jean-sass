@@ -6,12 +6,12 @@
 @use "../../lib/config";
 @use "get-css-var" as *;
 
-@function font-size($size: m) {
-  $default-key: 'typography.font-sizes.#{config.get("breakpoints.default")}.#{$size}';
+@function line-height($size: m) {
+  $default-key: 'typography.line-height.#{config.get("breakpoints.default")}.#{$size}';
 
   @if config.exist($default-key) == false {
     @error ('The #{$default-key} key is not defined.');
   }
 
-  @return get-css-var("fs", $size);
+  @return get-css-var("ln", $size);
 }

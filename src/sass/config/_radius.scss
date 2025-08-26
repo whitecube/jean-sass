@@ -1,0 +1,13 @@
+/*
+*   All radius related variables.
+*/
+
+@use "../lib/config";
+
+$config: (
+  "cards": 20,
+  "buttons": 16,
+  "label": 8,
+);
+
+@include config.merge("radius", $config);

@@ -461,3 +461,47 @@ Get a value using the dotted synthax
 ```scss
 font-size: set("grid.unit", $value);
 ```
+
+## TODO
+
+- Dans la config, trier par breakpoints + générer
+
+`@include create-css-var-responsive('fs', config.get('typography.font-sizes'), 'rem');`
+
+cree les vars css avec media query les clés sont des breakpoints
+
+```scss
+$config: (
+  "base-font-size": 16,
+  "font-sizes": (
+    "desktop": (
+      "xl4": 64,
+      "xl3": 48,
+      "xl2": 32,
+      "xl": 24,
+      "l": 20,
+      "m": 16,
+      "s": 14,
+      "xs": 12,
+    ),
+    "mobile": (
+      "xl4": 32,
+      "xl3": 48,
+    ),
+  ),
+);
+```
+
+Dans breakpoints
+
+```scss
+$config: (
+  //Choisir la valeur par défaut
+  "default": "desktop",
+  "breakpoints": (
+    //liste des breakpoints white sass
+    "mobile": 640px,
+    "desktop": 1200px
+  )
+);
+```

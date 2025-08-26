@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "sass:list";
+@use "../../lib/config";
+@use "../../lib/mq" as *;
+@use "create-css-var" as *;
+
+@mixin create-css-var-responsive($base, $config, $unit: false) {
+  @if map.has-key($config, config.get("breakpoints.default")) {
+    @include create-css-var(
+      $base,
+      map.get($config, config.get("breakpoints.default")),
+      $unit
+    );
+  }
+
+  $config: map.remove($config, config.get("breakpoints.default"));
+
+  @each $breakpoint, $value in config.get("breakpoints.breakpoints") {
+    @if map.has-key($config, $breakpoint) {
+      @include mq($until: $breakpoint) {
+        @include create-css-var($base, map.get($config, $breakpoint), $unit);
+      }
+    }
+  }
+}

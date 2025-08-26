@@ -1,17 +1,22 @@
 // Allows to convert a nested array into css variables
 @use "sass:meta";
 @use "sass:list";
+@use "../functions/rem" as *;
 
-@mixin create-css-var($base, $config) {
+@mixin create-css-var($base, $config, $unit: false) {
   @if meta.type-of($config) == "map" {
     @each $name, $config-item in $config {
-      @include create-css-var("#{$base}-#{$name}", $config-item);
+      @include create-css-var("#{$base}-#{$name}", $config-item, $unit);
     }
   } @else if
     meta.type-of($config) !=
     "list" or
     (meta.type-of($config) == "list" and list.length($config) > 1)
   {
-    --#{$base}: #{$config};
+    @if $unit == "rem" {
+      --#{$base}: #{rem($config)};
+    } @else {
+      --#{$base}: #{$config};
+    }
   }
 }

@@ -4,12 +4,15 @@
 // **********************************************************
 
 @use "sass:list";
-@use "./rem" as *;
-@use "./list-concat" as *;
+@use "get-css-var" as *;
 @use "../../lib/config";
 
-@function spacing($keys...) {
-  $keys: list.join("spacings", $keys);
-  $value: config.get(list-concat($keys, "."));
-  @return rem($value);
+@function spacing($key) {
+  $default-key: 'spacings.#{config.get("breakpoints.default")}.#{$key}';
+
+  @if config.exist($default-key) == false {
+    @error ('The #{$default-key} key is not defined.');
+  }
+
+  @return get-css-var("spacing", $key);
 }

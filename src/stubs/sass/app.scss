@@ -3,6 +3,7 @@
 @use "@whitecube/white-sass/base/reset";
 @use "@whitecube/white-sass";
 @use "./parts/parts";
+@use "./base/base";
 
 /*
 * Import only used fonts. (please use the font(name, variant) function.  

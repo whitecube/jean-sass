@@ -8,7 +8,9 @@
 @forward "functions/fixedCol";
 @forward "functions/fixedGut";
 @forward "functions/font-size";
+@forward "functions/get-css-var";
 @forward "functions/font-size-unitless";
+@forward "functions/line-height";
 @forward "functions/gutter";
 @forward "functions/list-concat";
 @forward "functions/map-deep-get";
@@ -27,6 +29,7 @@
 @forward "mixins/clearfix";
 @forward "mixins/clickableTransparentBg";
 @forward "mixins/cover";
+@forward "mixins/create-css-var-responsive";
 @forward "mixins/create-css-var";
 @forward "mixins/font-face";
 @forward "mixins/font";

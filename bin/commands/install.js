@@ -12,6 +12,7 @@ module.exports = class Install {
       app: `${this.srcPath}/stubs/sass/app.scss`,
       parts: `${this.srcPath}/stubs/sass/parts/_parts.scss`,
       config: `${this.srcPath}/stubs/sass/config`,
+      base: `${this.srcPath}/stubs/sass/base`,
     };
   }
 
@@ -20,6 +21,7 @@ module.exports = class Install {
       app: `${destinationPath}/app.scss`,
       parts: `${destinationPath}/parts/_parts.scss`,
       config: `${destinationPath}/config`,
+      base: `${destinationPath}/base`,
     };
   }
 

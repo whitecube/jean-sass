@@ -38,7 +38,7 @@ $mq-responsive: true !default;
 ///
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
-$breakpoints: config.get("breakpoints");
+$breakpoints: config.get("breakpoints.breakpoints");
 
 /// Static breakpoint (for fixed-width layouts)
 ///
@@ -218,7 +218,9 @@ $mq-media-type: all !default;
         $media-type !=
         "print"
     ) {
-      @content;
+      & {
+        @content;
+      }
     }
   }
 
@@ -241,7 +243,9 @@ $mq-media-type: all !default;
     }
 
     @media #{$media-type + $media-query} {
-      @content;
+      & {
+        @content;
+      }
     }
   }
 }

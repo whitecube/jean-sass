@@ -1,0 +1,10 @@
+// Allows to convert a nested array into css variables
+@use "sass:meta";
+@use "sass:list";
+@use "../functions/rem" as *;
+@use "str-replace" as *;
+
+@function get-css-var($base, $key) {
+  $key: str-replace($key, ".", "-");
+  @return var(--#{$base}-#{$key});
+}

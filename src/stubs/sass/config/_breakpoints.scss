@@ -1,12 +1,11 @@
 // @use '@whitecube/white-sass/config';
 
 // $config: (
-//     'xxl': 1800px,
-//     'xl': 1200px,
-//     'l': 920px,
-//     'm': 760px,
-//     's': 640px,
-//     'xs': 480px,
+//     'default': 'desktop',
+//     'breakpoints': (
+//         'desktop': 1200px,
+//         'mobile': 640px,
+//     ),
 // );
 
 // @include config.merge('breakpoints', $config);
