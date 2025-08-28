@@ -7,17 +7,18 @@
 @use "functions/em";
 @use "functions/fixedCol";
 @use "functions/fixedGut";
-@use "functions/font-size-unitless";
+//@use "functions/font-size-unitless";
+@use "functions/font-size";
+@use "functions/get-css-var";
 @use "functions/gutter";
+@use "functions/line-height";
 @use "functions/mid";
-@use "functions/px";
+@use "functions/radius";
 @use "functions/rem";
 @use "functions/rmUnit";
+@use "functions/spacing";
 @use "functions/str-replace";
 @use "functions/list-concat";
-// @use "functions/str-split"; //tested withing the config system
-// str-replace used on font-face;
-// map-deep-get used everywhere with font;
 
 /*
 * Mixins
@@ -25,6 +26,8 @@
 @use "mixins/clearfix";
 @use "mixins/clickableTransparentBg";
 @use "mixins/cover";
+@use "mixins/create-css-var-responsive";
+@use "mixins/create-css-var";
 @use "mixins/font";
 @use "mixins/grid";
 @use "mixins/hidden";

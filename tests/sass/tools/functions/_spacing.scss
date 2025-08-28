@@ -1,0 +1,4 @@
+@use "../../../../src/sass/tools/functions/spacing" as *;
+.spacing {
+  padding: spacing("padding.xl");
+}

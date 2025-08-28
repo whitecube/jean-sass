@@ -1,0 +1,16 @@
+@use "../../../../src/sass/lib/config";
+@use "../../../../src/sass/tools/mixins/create-css-var-responsive" as *;
+.create-css-var-responsive {
+  @include create-css-var-responsive("radius", config.get("radius"), "rem");
+  @include create-css-var-responsive(
+    "fs",
+    config.get("typography.font-sizes"),
+    "rem"
+  );
+  @include create-css-var-responsive(
+    "lh",
+    config.get("typography.line-height"),
+    "rem"
+  );
+  @include create-css-var-responsive("spacing", config.get("spacings"), "rem");
+}

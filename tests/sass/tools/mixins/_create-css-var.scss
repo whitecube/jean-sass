@@ -1,0 +1,6 @@
+@use "../../../../src/sass/lib/config";
+@use "../../../../src/sass/tools/mixins/create-css-var" as *;
+
+.create-css-var {
+  @include create-css-var("all", config.get("*"));
+}

@@ -1,0 +1,5 @@
+@use "../../../../src/sass/tools/functions/get-css-var" as *;
+.get-css-var {
+  font-size: get-css-var("fs", "h1");
+  color: get-css-var("color", "grey.100");
+}

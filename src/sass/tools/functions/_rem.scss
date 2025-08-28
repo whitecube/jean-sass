@@ -6,22 +6,13 @@
 // **********************************************************
 
 @use "sass:math";
-@use "sass:meta";
 @use "rmUnit" as *;
-@use "font-size-unitless" as *;
 @use "../../lib/config";
+@use "font-size-unitless" as *;
 
 @function rem(
   $goal: config.get("typography.base-font-size"),
   $root: config.get("typography.base-font-size")
 ) {
-  @if (meta.type-of($goal) != number) {
-    $goal: font-size-unitless($goal) * 1em;
-  }
-
-  @if (meta.type-of($root) != number) {
-    $root: font-size-unitless($root) * 1em;
-  }
-
   @return math.div(rmUnit($goal), rmUnit($root)) * 1rem;
 }
