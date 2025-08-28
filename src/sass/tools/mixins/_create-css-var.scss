@@ -14,9 +14,9 @@
     (meta.type-of($config) == "list" and list.length($config) > 1)
   {
     @if $unit == "rem" {
-      --#{$base}: #{rem($config)};
+      #{'--#{$base}'}: #{rem($config)};
     } @else {
-      --#{$base}: #{$config};
+      #{'--#{$base}'}: #{$config};
     }
   }
 }
