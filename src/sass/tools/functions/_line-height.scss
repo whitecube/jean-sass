@@ -13,5 +13,5 @@
     @error ('The #{$default-key} key is not defined.');
   }
 
-  @return get-css-var("ln", $size);
+  @return get-css-var("lh", $size);
 }

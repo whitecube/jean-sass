@@ -12,7 +12,7 @@
     "rem"
   );
   @include create-css-var-responsive(
-    "ln",
+    "lh",
     config.get("typography.line-height"),
     "rem"
   );
