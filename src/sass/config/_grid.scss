@@ -1,6 +1,6 @@
 @use "../lib/config";
 $config: (
-  "unit": 1em,
+  "unit": 1rem,
   // Unit used in the gridz-system. Possible values : 1px, 1em, 1rem, 1banana (all available css units except '%')
   "columns": 12,
   // Number of columns you want in the grid

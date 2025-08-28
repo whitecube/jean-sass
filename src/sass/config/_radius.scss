@@ -5,9 +5,14 @@
 @use "../lib/config";
 
 $config: (
-  "cards": 20,
-  "buttons": 16,
-  "label": 8,
+  "desktop": (
+    "cards": 20,
+    "buttons": 16,
+    "label": 8,
+  ),
+  "mobile": (
+    "cards": 10,
+  ),
 );
 
 @include config.merge("radius", $config);

@@ -1,8 +1,6 @@
-// Keep order (config then white-sass)
-@use "./config/config";
-@use "./base/css-vars";
-@use "@whitecube/white-sass/base/reset";
+// Keep order
 @use "@whitecube/white-sass";
+@use "./config/config";
 @use "./base/base";
 @use "./parts/parts";
 

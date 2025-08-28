@@ -10,7 +10,7 @@ module.exports = class Install {
     this.destination = null;
     this.stubs = {
       app: `${this.srcPath}/stubs/sass/app.scss`,
-      parts: `${this.srcPath}/stubs/sass/parts/_parts.scss`,
+      parts: `${this.srcPath}/stubs/sass/parts`,
       config: `${this.srcPath}/stubs/sass/config`,
       base: `${this.srcPath}/stubs/sass/base`,
     };
@@ -19,7 +19,7 @@ module.exports = class Install {
   setDestination(destinationPath) {
     this.destination = {
       app: `${destinationPath}/app.scss`,
-      parts: `${destinationPath}/parts/_parts.scss`,
+      parts: `${destinationPath}/parts`,
       config: `${destinationPath}/config`,
       base: `${destinationPath}/base`,
     };

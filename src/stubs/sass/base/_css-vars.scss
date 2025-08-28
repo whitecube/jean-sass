@@ -4,7 +4,7 @@
 :root {
   // Will create --colors-key1-key2 type of css variables
   @include create-css-var("colors", config.get("colors"));
-  @include create-css-var("radius", config.get("radius"), "rem");
+  @include create-css-var-responsive("radius", config.get("radius"), "rem");
   @include create-css-var-responsive(
     "fs",
     config.get("typography.font-sizes"),

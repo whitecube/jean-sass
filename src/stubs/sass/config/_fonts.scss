@@ -1,4 +1,4 @@
-@use "@whitecube/white-sass/config";
+//@use "@whitecube/white-sass/config";
 
 // Available fonts declaration. Map format :
 // $fonts-stack: (
@@ -19,7 +19,7 @@
 
 // $config: (
 //     'used-fonts': (),
-//     'fonts-stack': (),
+//     'fonts-stack': $fonts-stack,
 //     'fonts-path': '../../fonts/',
 // );
 

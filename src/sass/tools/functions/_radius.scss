@@ -3,13 +3,15 @@
 // returns the defined radius.
 // **********************************************************
 
-@use "sass:list";
-@use "./rem" as *;
-@use "./list-concat" as *;
 @use "../../lib/config";
-@use "../../config/global";
+@use "get-css-var" as *;
 
-@function radius($keys...) {
-  $keys: list.join("radius", $keys);
-  @return rem(config.get(list-concat($keys, ".")));
+@function radius($size) {
+  $default-key: 'radius.#{config.get("breakpoints.default")}.#{$size}';
+
+  @if config.exist($default-key) == false {
+    @error ('The #{$default-key} key is not defined.');
+  }
+
+  @return get-css-var("radius", $size);
 }
