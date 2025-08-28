@@ -1,9 +1,10 @@
 // Keep order (config then white-sass)
 @use "./config/config";
+@use "./base/css-vars";
 @use "@whitecube/white-sass/base/reset";
 @use "@whitecube/white-sass";
-@use "./parts/parts";
 @use "./base/base";
+@use "./parts/parts";
 
 /*
 * Import only used fonts. (please use the font(name, variant) function.  
