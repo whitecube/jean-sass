@@ -38,8 +38,7 @@ $mq-responsive: true !default;
 ///
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
-$breakpoints: config.get("breakpoints.breakpoints");
-
+//$breakpoints: config.get('breakpoints.breakpoints');
 /// Show breakpoints in the top right corner
 ///
 /// If you want to display the currently active breakpoint in the top
@@ -97,7 +96,10 @@ $media-type: all !default;
 /// @requires {Variable} $breakpoints
 ///
 /// @returns {Number} Value in pixels
-@function get-breakpoint-width($name, $breakpoints: $breakpoints) {
+@function get-breakpoint-width(
+  $name,
+  $breakpoints: config.get("breakpoints.breakpoints")
+) {
   @if map.has-key($breakpoints, $name) {
     @return map.get($breakpoints, $name);
   } @else {
@@ -157,7 +159,7 @@ $media-type: all !default;
   $until: false,
   $and: false,
   $media-type: $media-type,
-  $breakpoints: $breakpoints
+  $breakpoints: config.get("breakpoints.breakpoints")
 ) {
   $min-width: 0;
   $max-width: 0;
@@ -300,7 +302,7 @@ $media-type: all !default;
 ///  @include show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));
 @mixin show-breakpoints(
   $show-breakpoints: $show-breakpoints,
-  $breakpoints: $breakpoints
+  $breakpoints: config.get("breakpoints.breakpoints")
 ) {
   body:before {
     background-color: #fcf8e3;
