@@ -22,6 +22,7 @@
 /*
 * Mixins
 */
+@use "mixins/aspect-ratio";
 @use "mixins/clearfix";
 @use "mixins/clickableTransparentBg";
 @use "mixins/cover";

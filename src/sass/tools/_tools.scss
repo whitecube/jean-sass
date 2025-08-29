@@ -24,6 +24,7 @@
 /*
 * Mixins
 */
+@forward "mixins/aspect-ratio";
 @forward "mixins/clearfix";
 @forward "mixins/clickableTransparentBg";
 @forward "mixins/cover";

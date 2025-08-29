@@ -1,0 +1,5 @@
+@use "../../../../src/sass/tools/mixins/aspect-ratio" as *;
+.ar-16-9 {
+  @include aspect-ratio(16, 9);
+  @include aspect-ratio(1920, 1080);
+}
