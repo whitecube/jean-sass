@@ -362,6 +362,33 @@ Get the desired `rem` size by its name as first parameter the second paremeter i
 
 ### Mixins
 
+#### `aspec-ratio($width, $height)`
+
+Add an aspect ratio to the element bu using the padding bottom technique
+
+```scss
+.ar-16-9 {
+  @include aspect-ratio(16, 9);
+  // OR
+  @include aspect-ratio(1920, 1080);
+}
+```
+
+##### Output
+
+```css
+.ar-16-9 {
+  position: relative;
+}
+
+.ar-16-9::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+```
+
 #### `clearfix([both|left|right])`
 
 Reset float on parent-element of floated elements, the default value is `clearfix(both)`.
