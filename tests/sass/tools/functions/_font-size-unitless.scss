@@ -1,5 +1,0 @@
-@use "../../../../src/sass/tools/functions/rem" as *;
-@use "../../../../src/sass/tools/functions/font-size-unitless" as *;
-.font-size-unitless {
-  font-size: font-size-unitless(m) * 1px;
-}
