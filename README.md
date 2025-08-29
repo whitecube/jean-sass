@@ -78,6 +78,59 @@ $config: (
 @include config.merge("colors", $config);
 ```
 
+#### Responsive variables
+
+Some variables are responsive, to make it work, you have to set up the breakpoints in the `breakpoints.breakpoints` key in the `config/_breakpoints.scss`.
+
+```scss
+$config: (
+  // …
+  // 👉 Here
+  "breakpoints": (
+      "desktop": 1200px,
+      "mobile": 640px,
+    )
+);
+```
+
+Then, set up the same breakpoint in the desired config file, here, `config/_typography.scss`, if the key is the same in mobile, you can just ignore it.
+
+```scss
+$config: (
+  "font-sizes": (
+    "desktop": (
+      "h1": 64,
+      "h2": 56,
+      "h3": 44,
+      "h4": 36,
+      "h5": 24,
+      "h6": 20,
+      "body-single": 18,
+      "body": 16,
+      "body-listing": 16,
+      "small-text": 14,
+      "label": 12,
+    ),
+    "mobile": (
+      "h1": 36,
+      "h2": 32,
+      "h3": 28,
+      "h4": 24,
+      "h5": 20,
+      "h6": 18,
+      "body-single": 16,
+    ),
+  ),
+);
+```
+
+### Base
+
+The `base` folder is the place where all the css vars are created and the foundation can be edited.
+
+In `_css-vars.scss` you can find a list of mixins that creates variables based on your configuration.
+In `_foundation.scss` you can set un the more global rules for your project.
+
 ### Functions
 
 #### `col($col, $parent)`
@@ -167,30 +220,14 @@ $config: (
 }
 ```
 
-#### `em($goal: m, $parent: m)`
+#### `em($goal, $parent)`
 
-Get the desired em size based on the parent size. And values written in the `config/_typography.scss` file. You can either use number values which correspond to pixels or string values that correspond to your `font-size` config.
+Get the desired em size based on the parent size.
 
 ```scss
-//Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
-
-// _typography.scss simple config
-$config: (
-  "font-sizes": (
-    "l": 20,
-    "m": 16,
-    "s": 14,
-    "xs": 12,
-  ),
-);
-
-// _your-part-file.scss
 // Font size of 12px or 0.75em if the parent has a 16px, 1em,… font size.
 .font-size {
   font-size: em(12, 16);
-  font-size: em("xs", "m");
-  font-size: em("xs", 16);
 }
 ```
 
@@ -218,6 +255,30 @@ $config: (
 }
 ```
 
+#### `fixedGut($gut)`
+
+Get the gutter width based of the amount of column in
+specified in the first parameter. This value is calculated based on values in the `config/_typography.scss` file. The value you'll get is **unitless**, don't forget to use it with `rem()`, `em()`,… functions.
+
+```scss
+//Always import your tools here
+@use "@whitecube/white-sass/tools" as *;
+
+// _grid.scss simple config
+$config: (
+  unit: 1em,
+  columns: 12,
+  width: 1200,
+  gutter_size: 24,
+);
+
+// _your-part-file.scss
+.spacer {
+  // fixedGut(4) returns a unitless value, rem(), convert it into a css readable value.
+  max-width: rem(fixedGut(4));
+}
+```
+
 #### `gutter($parent)`
 
 Get the desired percentage value of a **single gutter** based of the grid you set up in your `config/_grid.scss`. The first argument is the parent's column amount.
@@ -238,6 +299,29 @@ $config: (
 .my-container {
   // 1 gutter for a parent of 4 cols
   width: gutter(4);
+}
+```
+
+#### `get-css-var($base, $key)`
+
+Get the css value based on what you specified in the `base` files, for example:
+
+```scss
+// base/_css-var.scss
+@include create-css-var("colors", config.get("colors"));
+@include create-css-var-responsive(
+  "fs",
+  config.get("typography.font-sizes"),
+  "rem"
+);
+
+// parts/_some part file.scss
+.part {
+  font-size: get-css-var("fs", "h1"); // return `font-size: var(--fs-h1);`
+  color: get-css-var(
+    "colors",
+    "grey.100"
+  ); // return `font-size: var(--colors-grey-100);`
 }
 ```
 
@@ -262,30 +346,17 @@ Get a fluid size between the `$min` and `$max` values depending on the max grid 
 }
 ```
 
-#### `px($goal: m)`
+#### `rem($goal, $root)`
 
-Get the desired px size by its name. And values written in the `config/_typography.scss` file.
-
-```scss
-//Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
-
-.m {
-  font-size: px("m");
-}
-```
-
-#### `rem($goal: m, $root: m)`
-
-Get the desired `rem` size by its name as first parameter the second paremeter is the root value for `rem` units. Those values written in the `config/_typography.scss` file.
+Get the desired `rem` size by its name as first parameter the second paremeter is the root value for `rem` units.
 
 ```scss
 //Always import your tools here
 @use "@whitecube/white-sass/tools" as *;
 
 .m {
-  font-size: rem('xl')
-  font-size: rem('xl', 'm')
+  font-size: rem(34)
+  font-size: rem(34, 16)
 }
 ```
 
@@ -321,14 +392,150 @@ Sets an element in an absolute position, covering its relative parent. Parameter
 }
 ```
 
-#### `font($name, $variant: regular, $properties: family weight style)`
+#### `create-css-var-responsive($base, $config, $unit: false)`
 
-Sets an element in an absolute position, covering its relative parent. Parameters are the values from the `top`, `right`, `bottom`, `left` the parameter 's order works the same as the css `padding`, `margin`,…
+This mixin allows you to create css variables that are responsive. Here is how it works.
+
+First, in the `breakpoints.breakpoints` config key in the `config/_breakpoints.scss`, you have to define your breakpoints like this:
 
 ```scss
-.card-link {
+// config/_breakpoints.scss
+$config: (
+  "default": "desktop",
+  // 👈 Your default variables that will be use without media query
+  "breakpoints": (
+      "desktop": 1200px,
+      // 👈 Breakpoint with px units
+      "mobile": 640px,
+    ),
+);
+```
+
+Once it is done, you have to repeat those values in the concerned config map like so:
+
+```scss
+// config/_typography.scss
+$config: (
+  //...
+  "font-sizes": (
+      "desktop": (
+        // 👈 Use your breakpoint here
+        "h1": 64,
+        "h2": 56,
+        "h3": 44,
+        //...
+      ),
+      "mobile": (
+        // 👈 Use your breakpoint here
+        "h1": 36,
+        //...
+      ),
+    )
+);
+```
+
+As you can see, no need to repeat your keys in the `mobile` key in this case if the value doesn't change.
+
+The first parameter is the prefix, then the config and an optional unit, for now only `rem` is supported. it will generate css output like s: `--prefix-key1-key2: 'value'` of for the following config
+
+```scss
+$config: (
+  "key1": (
+    "desktop": (
+      "key2": "value",
+    ),
+    "mobile": (
+      "key2": "value",
+    ),
+  ),
+);
+
+@include create-css-var-responsive("prefix", $config);
+```
+
+Here is how to use it:
+
+```scss
+// base/_css-var.scss
+:root {
+  @include create-css-var-responsive(
+    "fs",
+    config.get("typography.font-sizes"),
+    "rem"
+  );
+}
+```
+
+##### Output
+
+```css
+:root {
+  --fs-h1: 4rem;
+  --fs-h2: 3.5rem;
+  --fs-h3: 2.75rem;
+}
+@media (max-width: 39.99em) {
+  :root {
+    --fs-h1: 2.25rem;
+  }
+}
+```
+
+#### `create-css-var($base, $config, $unit: false)`
+
+This function loops recusively through a map to write css vars like so:
+
+```scss
+$config: (
+  "grey": (
+    "000": #ffffff,
+    "50": #f8f9fa,
+  ),
+);
+
+:root {
+  @include create-css-var("colors", $config);
+}
+```
+
+##### Output
+
+```css
+:root {
+  --colors-grey-000: #ffffff;
+  --colors-grey-50: #f8f9fa;
+}
+```
+
+#### `font($name, $variant: regular, $properties: family weight style)`
+
+Creates the necessary font-\* declarations for using the
+font at the desired place.
+
+```scss
+.full-font {
   //These values have to be set up in the dont config file.
   @include font("inter", "bold");
+}
+
+.family-weight-only {
+  //These values have to be set up in the dont config file.
+  @include font("inter", "bold", "family" "weight");
+}
+```
+
+##### Output
+
+```css
+.full-font {
+  font-family: "Inter";
+  font-weight: bold;
+  font-style: normal;
+}
+
+.family-weight-only {
+  font-family: "Inter";
+  font-weight: bold;
 }
 ```
 
@@ -460,48 +667,4 @@ Get a value using the dotted synthax
 
 ```scss
 font-size: set("grid.unit", $value);
-```
-
-## TODO
-
-- Dans la config, trier par breakpoints + générer
-
-`@include create-css-var-responsive('fs', config.get('typography.font-sizes'), 'rem');`
-
-cree les vars css avec media query les clés sont des breakpoints
-
-```scss
-$config: (
-  "base-font-size": 16,
-  "font-sizes": (
-    "desktop": (
-      "xl4": 64,
-      "xl3": 48,
-      "xl2": 32,
-      "xl": 24,
-      "l": 20,
-      "m": 16,
-      "s": 14,
-      "xs": 12,
-    ),
-    "mobile": (
-      "xl4": 32,
-      "xl3": 48,
-    ),
-  ),
-);
-```
-
-Dans breakpoints
-
-```scss
-$config: (
-  //Choisir la valeur par défaut
-  "default": "desktop",
-  "breakpoints": (
-    //liste des breakpoints white sass
-    "mobile": 640px,
-    "desktop": 1200px
-  )
-);
 ```
