@@ -1,0 +1,17 @@
+// - transition($key)
+// **********************************************************
+// returns the defined transition.
+// **********************************************************
+
+@use "../../lib/config";
+@use "get-css-var" as *;
+
+@function transition($name) {
+  $default-key: "transitions.#{$name}";
+
+  @if config.exist($default-key) == false {
+    @error ('The #{$default-key} key is not defined.');
+  }
+
+  @return config.get($default-key);
+}
