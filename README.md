@@ -4,15 +4,11 @@
 
 First add `jean-sass` to your package.json's dependencies.
 
-```json
-{
-  "dependencies": {
-    "@whitecube/jean-sass": "git@github.com:whitecube/jean-sass.git" //#branch-name if needed
-  }
-}
+```sh
+npm install whitecube/jean-sass
 ```
 
-Then, run `npm install`. Once it's done, to use it you can either, run the command follwing command :
+Once it's done, to use it you can either, run the command follwing command :
 
 ```sh
 npx jean-sass install
