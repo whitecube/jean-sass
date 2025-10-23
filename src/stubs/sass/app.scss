@@ -1,5 +1,5 @@
 // Keep order
-@use "@whitecube/white-sass";
+@use "@whitecube/jean-sass";
 @use "./config/config";
 @use "./base/base";
 @use "./parts/parts";
@@ -7,5 +7,5 @@
 /*
 * Import only used fonts. (please use the font(name, variant) function.  
 */
-@use "@whitecube/white-sass/tools/mixins/import-fonts" as *;
+@use "@whitecube/jean-sass/tools/mixins/import-fonts" as *;
 @include import-fonts();

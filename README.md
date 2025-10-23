@@ -1,13 +1,13 @@
-# white-sass
+# jean-sass
 
 ## Get started
 
-First add `white-sass` to your package.json's dependencies.
+First add `jean-sass` to your package.json's dependencies.
 
 ```json
 {
   "dependencies": {
-    "@whitecube/white-sass": "git@github.com:whitecube/white-sass.git" //#branch-name if needed
+    "@whitecube/jean-sass": "git@github.com:whitecube/jean-sass.git" //#branch-name if needed
   }
 }
 ```
@@ -15,20 +15,20 @@ First add `white-sass` to your package.json's dependencies.
 Then, run `npm install`. Once it's done, to use it you can either, run the command follwing command :
 
 ```sh
-npx white-sass install
+npx jean-sass install
 ```
 
 OR
 
 ```sh
-npx white-sass install resources/sass
+npx jean-sass install resources/sass
 ```
 
 or use it as a more classical way by using it in your files:
 
 ```scss
-@use "@whitecube/white-sass";
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass";
+@use "@whitecube/jean-sass/tools" as *;
 body {
   font-size: rem(1000);
 }
@@ -47,7 +47,7 @@ After running the installation script a folder `installation_path/config` with t
 - `_grid.scss`
 - `_typography.scss`
 
-These files are symply the configuration files for _white-sass_, you can add as much as you want, for your personal use.
+These files are symply the configuration files for _jean-sass_, you can add as much as you want, for your personal use.
 
 Here is how it is build
 
@@ -56,7 +56,7 @@ Here is how it is build
 * Import the config module to be able to merge
 * your variables to the global $config array.
 */
-@use "@whitecube/white-sass/config";
+@use "@whitecube/jean-sass/config";
 
 /*
 * Set up your colors, transition, typography,…
@@ -145,7 +145,7 @@ Get the desired percentage value based of the grid you set up in your `config/_g
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 .parent {
   // The parent will take 8 columns of the grid
@@ -171,7 +171,7 @@ Get the desired percentage value based of the grid you set up in your `config/_g
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 .parent {
   // The parent will take 8 columns of the grid
@@ -202,7 +202,7 @@ $config: (
 
 // _your-part-file.scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 // Argument based synthax
 .text-disabled {
@@ -238,7 +238,7 @@ specified in the first parameter. This value is calculated based on values in th
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 // _grid.scss simple config
 $config: (
@@ -262,7 +262,7 @@ specified in the first parameter. This value is calculated based on values in th
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 // _grid.scss simple config
 $config: (
@@ -285,7 +285,7 @@ Get the desired percentage value of a **single gutter** based of the grid you se
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 // _grid.scss simple config
 $config: (
@@ -331,7 +331,7 @@ Get a fluid size between the `$min` and `$max` values depending on the max grid 
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 .m-xl {
   font-size: mid(16, 24);
@@ -352,7 +352,7 @@ Get the desired `rem` size by its name as first parameter the second paremeter i
 
 ```scss
 //Always import your tools here
-@use "@whitecube/white-sass/tools" as *;
+@use "@whitecube/jean-sass/tools" as *;
 
 .m {
   font-size: rem(34)
@@ -662,9 +662,9 @@ Revese the effect caused by the `hidden()` mixin.
 
 #### Config
 
-The config library is there to manage all White-sass variable, to make it work properly. 4 pillars to make it work:
+The config library is there to manage all jean-sass variable, to make it work properly. 4 pillars to make it work:
 
-- the global `$config` array, which is where all white-sass variable are stored.
+- the global `$config` array, which is where all jean-sass variable are stored.
 - the `set($key, $value)` mixin to add values
 - the `get($key)` mixin to get values
 - the `merge($key, $value)` mixin to deep merge arrays of config values.
@@ -676,7 +676,7 @@ Everyone of these functions works with dotted synthax. Example, `get('grid.width
 Set values easly in the config `$array`.
 
 ```scss
-@use "@whitecube/white-sass/lib/config";
+@use "@whitecube/jean-sass/lib/config";
 
 @include set("grid.unit", $value); // result => $config: (grid:(unit: $value));
 @include set(

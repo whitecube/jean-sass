@@ -1,7 +1,7 @@
 {
-  "name": "@whitecube/white-sass",
+  "name": "@whitecube/jean-sass",
   "version": "0.0.1",
-  "description": "Rework white-sass",
+  "description": "Jean-sass pakage to make your life easier with sass.",
   "bin": "bin/cli.js",
   "main": "./src/sass/_index.scss",
   "exports": {
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/whitecube/white-sass.git"
+    "url": "git+ssh://git@github.com/whitecube/jean-sass.git"
   },
   "keywords": [
     "sass"
@@ -42,9 +42,9 @@
   "author": "Whitecube",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/whitecube/white-sass/issues"
+    "url": "https://github.com/whitecube/jean-sass/issues"
   },
-  "homepage": "https://github.com/whitecube/white-sass#readme",
+  "homepage": "https://github.com/whitecube/jean-sass#readme",
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
