@@ -25,6 +25,9 @@
     },
     "./config": {
       "sass": "./src/sass/lib/config.scss"
+    },
+    "./utility": {
+      "sass": "./src/sass/utility/_utility.scss"
     }
   },
   "scripts": {

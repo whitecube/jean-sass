@@ -7,6 +7,8 @@ $config: (
   "width": 1200,
   // Base grid-size (without units but based on pixels)
   "gutter_size": 24, // Base gutter-size (without units but based on pixels)
+  // The target CSS class used to display the grid background helper
+  "css_class": 'grid',
 );
 
 @include config.merge("grid", $config);
