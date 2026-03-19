@@ -4,6 +4,7 @@
 //     'columns': 12, // Number of columns you want in the grid
 //     'width': 1200, // Base grid-size (without units but based on pixels)
 //     'gutter_size': 24, // Base gutter-size (without units but based on pixels)
+//     'css_class': 'grid', // The target CSS class used to display the grid background helper
 // );
 
 // @include config.merge('grid', $config);

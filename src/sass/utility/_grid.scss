@@ -1,5 +1,8 @@
+@use "../lib/config";
 @use "../tools/tools" as *;
 
-.grid {
-  @include grid();
+@if config.get("grid.css_class") {
+  .#{config.get("grid.css_class")} {
+    @include grid();
+  }
 }
