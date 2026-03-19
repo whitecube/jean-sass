@@ -7,6 +7,7 @@
 @use "sass:map";
 @use "sass:list";
 @use "sass:string";
+@use "sass:math";
 @use "../functions/str-replace" as *;
 
 @mixin font-face(
@@ -26,18 +27,38 @@
     otf: "opentype",
     ttf: "truetype",
   );
-  $buster: if($bust, str-slice("" + random(), 3), "");
+
+  @if () {
+    $buster: string.slice("" + math.random(), 3);
+  } @else {
+    $buster: "";
+  }
 
   @each $ext in $extensions {
-    $extmod: if(map.has-key($extmods, $ext), map.get($extmods, $ext), "");
+    $extmod: "";
+
+    @if (map.has-key($extmods, $ext)) {
+      $extmod: map.get($extmods, $ext);
+    }
+
     @if string.slice($extmod, 0, 1) == "?" and $bust {
-      $extmod: if($extmod == "?", "", "&" + str-slice($extmod, 2));
+      @if ($extmod == "?") {
+        $extmod: "";
+      } @else {
+        $extmod: "&" + string.slice($extmod, 2);
+      }
     }
     @if $bust {
       $extmod: "?" + $buster + $extmod;
     }
     $extmod: $ext + $extmod;
-    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+
+    $format: $ext;
+
+    @if (map.has-key($formats, $ext)) {
+      $format: map.get($formats, $ext);
+    }
+
     $src: list.append(
       $src,
       url(string.quote($path + "." + $extmod)) format(string.quote($format)),

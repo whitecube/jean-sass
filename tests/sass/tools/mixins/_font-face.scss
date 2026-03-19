@@ -4,6 +4,8 @@
 // Inspired by
 // https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
 // **********************************************************
+@use "sass:string";
+@use "sass:math";
 @mixin font-face(
   $name,
   $path,
@@ -21,12 +23,12 @@
     otf: "opentype",
     ttf: "truetype",
   );
-  $buster: if($bust, str-slice("" + random(), 3), "");
+  $buster: if($bust, string.slice("" + math.random(), 3), "");
 
   @each $ext in $extensions {
     $extmod: if(map-has-key($extmods, $ext), map.get($extmods, $ext), "");
-    @if str-slice($extmod, 0, 1) == "?" and $bust {
-      $extmod: if($extmod == "?", "", "&" + str-slice($extmod, 2));
+    @if string.slice($extmod, 0, 1) == "?" and $bust {
+      $extmod: if($extmod == "?", "", "&" + string.slice($extmod, 2));
     }
     @if $bust {
       $extmod: "?" + $buster + $extmod;

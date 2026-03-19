@@ -14,6 +14,12 @@
     "./tools": {
       "sass": "./src/sass/tools/_tools.scss"
     },
+    "./config": {
+      "sass": "./src/sass/lib/_config.scss"
+    },
+    "./utility": {
+      "sass": "./src/sass/utility/_utility.scss"
+    },
     "./lib/*": {
       "sass": "./src/sass/lib/*.scss"
     },
@@ -22,12 +28,6 @@
     },
     "./tools/functions/*": {
       "sass": "./src/sass/tools/functions/*.scss"
-    },
-    "./config": {
-      "sass": "./src/sass/lib/config.scss"
-    },
-    "./utility": {
-      "sass": "./src/sass/utility/_utility.scss"
     }
   },
   "scripts": {

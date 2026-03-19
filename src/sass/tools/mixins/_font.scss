@@ -19,11 +19,13 @@
       $value: map.get($font-properties, $property);
       @if $property == family {
         $stack: map.get($font-properties, stack);
-        $stack: if(
-          meta.type-of($stack) == string,
-          ($value, $stack),
-          list.join($value, $stack)
-        );
+
+        @if meta.type-of($stack) == string {
+          $stack: ($value, $stack);
+        } @else {
+          $stack: list.join($value, $stack);
+        }
+
         @if $stack {
           $value: $stack;
         }
